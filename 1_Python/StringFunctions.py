@@ -1,0 +1,11 @@
+message = " Welcome To Python Programming Class "
+print("Remove extra spaces: ",message.strip())
+print("Convert everything to lowercase: ",message.lower())
+print("Convert everything to uppercase: ",message.upper())
+print("Convert to title case: ",message.lower().title())
+print("Replace \"Python\" with \"Advanced Python\"",message.replace("Python","Advanced Python"))
+print("Check whether the string starts with \"Welcome\"",message.startswith("Welcome"))
+print("Check whether it ends with \"Class\"",message.endswith("Class"))
+print("Count occurrences of \"o\"",message.count('o') )
+print("Find the position of \"Programming\"",message.index("Programming"))
+print("Split the sentence into words: ", message.split())
