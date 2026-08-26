@@ -4,7 +4,7 @@ city=input("Please enter your city name where you live:")
 collegename=input("Please enter your college name where you studied:")
 companyname=input("Please enter your company name:")
 current_topic=input("Please enter your current learning Topic:")
-year_experiance=input("Please enter your year of experiance:")
+year_experiance=float(input("Please enter your year of experiance:"))
 python_liking=input("Do you like python or not?(True/False):")
 python_liking=python_liking.lower()=='true'
 expected_salary=int(input("Please enter your expected salary:"))
