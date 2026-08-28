@@ -59,3 +59,30 @@ cart.sort()
 print(cart)
 
 
+
+print(""" 
+#Explain the difference between
+append() # Adds an element at end
+extend() # adds multiple elements at end 
+insert() # insert at specific position
+remove() # first matching element will be removed
+pop()    # remove last element
+clear() # make list empty
+copy()  # to create copy of all the elements
+sort()  # perfomr sorting
+reverse() # reverse list
+""")
+
+print("Removing")
+mylist=[1,2,1,3,4,5,"BAlwant"]
+mylist.remove(1)
+print(mylist)
+
+
+print("clearing")
+mylist.clear()
+print(mylist)
+
+mylist2=[1,2,3,4]
+
+print("Original list: ",mylist2, " Reversed list: ", mylist2.reverse())
