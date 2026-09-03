@@ -28,7 +28,6 @@ for i in temperatures:
 print("average temperature: ", sum/element_cnt)   
 print("------------------------------------------------------------")
 
-
 #Given student marks
 marks = [78, 92, 45, 67, 88, 53, 99]
 # count how many students scored
@@ -36,24 +35,29 @@ marks = [78, 92, 45, 67, 88, 53, 99]
 # 75–89
 # 50–74
 # below 50
-cnt_90Above=0
-cnt_75_89 =0
-cnt_50_74 =0
-cnt_below_50 =0
-for i in marks:
-  if i > 90:
-    cnt_90Above= cnt_90Above + 1
-  if ( i > 75 & i < 89) :
-    cnt_75_89 = cnt_75_89 + 1
-  if ( i > 50 & i < 74) :
-    cnt_50_74 = cnt_50_74 + 1  
-  if ( i < 50) :
-    cnt_below_50 = cnt_below_50 + 1    
+marks = [78, 92, 45, 67, 88, 53, 99]
 
-print(f"90+ :{cnt_90Above}")  
-print(f"75–89 :{cnt_75_89}")  
-print(f"50–74 :{cnt_50_74}")  
-print(f"below 50 :{cnt_below_50}")  
+count_90 = 0
+count_75_89 = 0
+count_50_74 = 0
+count_below_50 = 0
+
+for mark in marks:
+    if mark >= 90:
+        count_90 += 1
+    elif mark >= 75:
+        count_75_89 += 1
+    elif mark >= 50:
+        count_50_74 += 1
+    else:
+        count_below_50 += 1
+
+print("90+ :", count_90)
+print("75-89 :", count_75_89)
+print("50-74 :", count_50_74)
+print("Below 50 :", count_below_50)   
+
+
 
 
 print("------------------------------------------------------------")
