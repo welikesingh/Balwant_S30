@@ -31,7 +31,7 @@ else:
 
 print("use enumerate() to display indices and values:")
 names = ["Aman", "Ravi", "Sudhanshu", "Priya", "Anjali"]
-list(enumerate(names,start=1))
+print(list(enumerate(names,start=1)))
 
 
 
@@ -91,8 +91,8 @@ print("Unique List:", unique_list)
 
 numbers = [10, -4, 8, -2, 0, 15, -9, 21]
 print(" Count :", len(numbers))
-print("Positive numbers:", [x for x in numbers if x > 0])
-print("Negative numbers:", [x for x in numbers if x < 0])
+print("Positive numbers:", len([x for x in numbers if x > 0]))
+print("Negative numbers:", len([x for x in numbers if x < 0]))
 zeros = [x for x in numbers if x == 0]
 print("Count of Zeros:", len(zeros))    
 
