@@ -31,8 +31,9 @@ else:
 
 print("use enumerate() to display indices and values:")
 names = ["Aman", "Ravi", "Sudhanshu", "Priya", "Anjali"]
-print(list(enumerate(names,start=1)))
-
+#print(list(enumerate(names,start=1)))
+for i, name in enumerate(names,start=1):
+    print(i," ",name)
 
 
 print("""Print the following pattern:
