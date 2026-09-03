@@ -61,10 +61,7 @@ print("Below 50 :", count_below_50)
 
 
 print("------------------------------------------------------------")
-
 # Create a simple login system with a maximum of 3 password attempts.
-entered_user= input("Please enter user: ")
-entered_password= input("Enter password: ")
 list_users = [
             {"user":"user1", "password":"password1"},
             {"user":"user2", "password":"password2"},
@@ -72,17 +69,20 @@ list_users = [
             {"user":"user4", "password":"password4"}
           ]
 l_success='NO'
-for i in range(2):
+for i in range(3):
+  entered_user= input("Please enter user: ")
+  entered_password= input("Enter password: ")
   for lst in list_users:
     if (lst['user'] == entered_user) & (lst['password'] == entered_password):
       l_success='YES'
-      print("You are successfully loggedin !!")
+      print(f"You are successfully logged in {entered_user}!!")
       break
   if l_success != 'YES':
-    entered_user= input("Entered credential incorrect, Please re enter user: ")
-    entered_password= input("Entered credential incorrect, Please re enter password: ")
+    print("Invalid credentials. Please try again.")
+    continue
   else:
     break
+
 
 
 print("------------------------------------------------------------")
@@ -125,14 +125,37 @@ for i in list(set2):
 
 print("------------------------------------------------------------")
 print("Find the second-largest number in a list without using sort().")
-list3=[2,4,5,6,6,8,8,3]
-#list3.sort()
-#print(list3[1])
-for i in list3:
-    if i > max(list3):
-        list3.remove(i)
-print(max(list3))
+numbers = [2, 4, 5, 6, 6, 8, 8, 3]
+
+largest = float('-inf')
+second_largest = float('-inf')
+
+for num in numbers:
+    if num > largest:
+        second_largest = largest
+        largest = num
+    elif num > second_largest and num != largest:
+        second_largest = num
+
+print("Second largest number is:", second_largest)
 print("------------------------------------------------------------")
+
+print("""Create this number pattern
+1
+12
+123
+1234
+12345
+""")
+
+for i in range(1, 6):
+    for j in range(1, i + 1):
+        print(j, end="")
+    print()
+
+    
+print("------------------------------------------------------------")
+
 
 print("Check whether a string is a palindrome using loops.")
 s='madam'
