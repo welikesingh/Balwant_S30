@@ -1,0 +1,50 @@
+[
+  {
+    "name": "ST1",
+    "roll": "RL!",
+    "marks": [
+      60.0,
+      70.0,
+      80.0,
+      59.0,
+      66.0
+    ],
+    "total": 335.0,
+    "percentage": 67.0,
+    "grade": "C",
+    "status": "Pass",
+    "processed": true
+  },
+  {
+    "name": "ST2",
+    "roll": "RL2",
+    "marks": [
+      78.0,
+      59.0,
+      88.0,
+      90.0,
+      89.0
+    ],
+    "total": 404.0,
+    "percentage": 80.8,
+    "grade": "A",
+    "status": "Pass",
+    "processed": true
+  },
+  {
+    "name": "RL3",
+    "roll": "RL3",
+    "marks": [
+      45.0,
+      67.0,
+      87.0,
+      65.0,
+      89.0
+    ],
+    "total": 353.0,
+    "percentage": 70.6,
+    "grade": "B",
+    "status": "Pass",
+    "processed": true
+  }
+]
