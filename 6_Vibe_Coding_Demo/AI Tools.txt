@@ -1,0 +1,63 @@
+1. What is cline and opencode?
+   Cline and OpenCode are both AI coding agents. They can do much more than normal AI Agents
+   
+   Simple way to understand them
+     + Normal AI assistant(Claude/ChatGPT)
+	        https://claude.ai/new
+			https://chatgpt.com/
+         You ask:
+                 "Give me Python code to search files."				 
+         It gives you code, and you manually copy and paste it.
+		 
+		 
+	 + AI Coding Agent like ( Cline/OpenCode/Cursor/Claude/Codex/Copilot) 
+         You ask: "Add file extension search functionality to my project."
+
+        The agent can potentially:
+			Look at your project files
+			Understand your existing code
+			Decide where changes belong
+			Modify search.py
+			Update main.py
+			Run the application
+			Find errors
+			Fix them
+			
+			
+===========How to install them and how to use============
+
+2. How to use CLI option
+	https://cline.bot/cli
+	# 1. Install
+	npm i -g cline
+	# 2. Run Cline
+	cline
+
+
+	https://opencode.ai/
+	# 1. Install opencode
+	npm i -g opencode-ai
+	# 2. Run opencode
+	opencode
+
+3. How to install and use Euron Agent
+	https://pypi.org/project/euron-coding-agent/
+	# 1. Install 
+	python --version
+	pip install euron-coding-agent
+
+	# 2. Run with CLI
+	euron-agent
+    you: /provider openai      # or gemini, anthropic, groq, ollama, ...
+    you: /key                  # paste your API key (stored in ~/.euron-agent)
+	
+	
+
+5. How to use vscode with extentions
+   --install extentions (opencode/cline/claude/codex/copilot)---this will act as "AI Coding Agent"
+    
+	opencode--> it is cli option seen in step#3
+	cline   --> 
+	Codex
+	Cursor
+	

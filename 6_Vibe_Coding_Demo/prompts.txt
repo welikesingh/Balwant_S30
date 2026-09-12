@@ -1,0 +1,116 @@
+CHATGPT:
+I have need to develop File Search Tool  and like to get help to understand requirement
+
+
+
+
+Prompt 1
+--------
+A — Basic File Search kind of tool
+Folder will have List of values in current system dir.
+
+Search files based on:
+
+File name
+File extension
+File type
+Date created
+Folder
+
+Example:
+
+Search: invoice
+
+Results:
+invoice_january.pdf
+invoice_february.pdf
+invoice_report.xlsx
+
+clean Python project using mainly below structure:
+
+pathlib → work with files and folders
+os → some system/file operations if needed
+datetime → format creation/modification dates
+Recommended package/module structure
+file_search_tool/
+
+file_search_tool/
+│
+├── file_search/
+│   ├── __init__.py
+│   │
+│   ├── scanner.py
+│   ├── search.py
+│   ├── filters.py
+│   ├── metadata.py
+│   ├── display.py
+│   └── exceptions.py
+│
+├── main.py
+│
+├── requirements.txt
+│
+└── README.md
+
+lets first develop main.py and will go step by steps as we move further.
+
+This is the entry point of application.
+
+Responsibilities:
+
+Get user input
+Display the menu
+Call search functions
+Show results
+
+Example menu:
+
+1. List all files
+2. Search by file name
+3. Search by extension
+4. Search by file type
+5. Search by date
+6. Search by folder
+7. Exit
+
+main.py should not contain all the business logic.
+
+
+Prompt 2
+--------
+impliment file_search.display
+
+
+Prompt 3
+--------
+impliment file_search.scanner
+
+
+Prompt 4
+--------
+impliment the file_search module
+
+
+Prompt 5
+--------
+Add exception handling
+
+
+Prompt 6
+--------
+Add logging to display in console and log need to be written in one log folder each run will have new file with time stamp on file name
+
+
+Prompt 7
+--------
+Refactor the code
+
+
+Prompt 8
+--------
+create a small read me file for application
+
+
+Prompt 9
+--------
+create prompts.txt file and all the prompts that i entered to develop this application
