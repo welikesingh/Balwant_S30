@@ -24,7 +24,7 @@ print(cart)
 
 print("Find the index of \"Monitor\" :")
 def find(var1_search: str, cart: list):
-  var1_search="Monitor"
+  #var1_search="Monitor"
   if var1_search in cart:
       idx=cart.index(var1_search)
       return idx

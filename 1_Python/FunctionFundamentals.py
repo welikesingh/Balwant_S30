@@ -186,6 +186,6 @@ def example(a, b=10):
 # def example(a=10, b):   # — default can't come before non-default
 #     pass
 
-example(20) # usese default 
-example(20,30) # positional
+example(20)        # usese default 
+example(20,30)     # positional
 example(b=30,a=10) # named notation
