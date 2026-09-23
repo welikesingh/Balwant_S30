@@ -26,7 +26,7 @@ class User:
 
     # Constructor
     def __init__(self, name, email, user_id):
-        if is_valid_email(email):
+        if not User.is_valid_email(email):
           raise ValueError("Invalid Email on user initiation")
         self.name = name
         self.email = email
