@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FastAPI CORS Demo</title>
+</head>
+<body>
+    <h1>CORS Simulation</h1>
+
+    <button onclick="getData()">Call FastAPI</button>
+
+    <h3>API Response:</h3>
+    <pre id="result">Click the button to call the API.</pre>
+
+    <script>
+        async function getData() {
+            const result = document.getElementById("result");
+
+            try {
+                const response = await fetch(
+                    "http://localhost:8000/api/data"
+                );
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                result.textContent = JSON.stringify(data, null, 2);
+
+            } catch (error) {
+                result.textContent = "Request failed: " + error.message;
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
