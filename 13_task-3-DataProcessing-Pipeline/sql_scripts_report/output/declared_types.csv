@@ -1,0 +1,45 @@
+table_name,column_name,expected_type,actual_type,status
+customers,created_at,timestamp with time zone,timestamp with time zone,ok
+customers,customer_age,integer,integer,ok
+customers,customer_id,text,text,ok
+customers,home_city,text,text,ok
+customers,is_synthetic,boolean,boolean,ok
+customers,region,text,text,ok
+devices,device_id,text,text,ok
+devices,device_kind,text,text,ok
+devices,is_synthetic,boolean,boolean,ok
+labels,eligible_at_next_split_start,boolean,boolean,ok
+labels,fraud_label,smallint,smallint,ok
+labels,is_synthetic,boolean,boolean,ok
+labels,label_available_at,timestamp with time zone,timestamp with time zone,ok
+labels,label_source,text,text,ok
+labels,split,text,text,ok
+labels,transaction_id,text,text,ok
+merchants,is_synthetic,boolean,boolean,ok
+merchants,merchant_category,text,text,ok
+merchants,merchant_id,text,text,ok
+merchants,merchant_location,jsonb,jsonb,ok
+merchants,synthetic_name,text,text,ok
+payment_outcomes,failure_code,text,text,ok
+payment_outcomes,is_synthetic,boolean,boolean,ok
+payment_outcomes,outcome_time,timestamp with time zone,timestamp with time zone,ok
+payment_outcomes,status,text,text,ok
+payment_outcomes,transaction_id,text,text,ok
+transactions,account_age,integer,integer,ok
+transactions,amount_paise,bigint,bigint,ok
+transactions,average_transaction_value,numeric,numeric,ok
+transactions,customer_age,integer,integer,ok
+transactions,customer_id,text,text,ok
+transactions,customer_location,jsonb,jsonb,ok
+transactions,device_id,text,text,ok
+transactions,failed_transactions,integer,integer,ok
+transactions,is_synthetic,boolean,boolean,ok
+transactions,merchant_category,text,text,ok
+transactions,merchant_id,text,text,ok
+transactions,merchant_location,jsonb,jsonb,ok
+transactions,payment_channel,text,text,ok
+transactions,previous_transactions,integer,integer,ok
+transactions,split,text,text,ok
+transactions,transaction_amount,numeric,numeric,ok
+transactions,transaction_id,text,text,ok
+transactions,transaction_time,timestamp with time zone,timestamp with time zone,ok

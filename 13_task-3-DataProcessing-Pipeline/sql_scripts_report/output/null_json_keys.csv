@@ -1,0 +1,4 @@
+json_column,non_null_rows,missing_lat,missing_lon,missing_city
+transactions.customer_location,106743,0,0,0
+transactions.merchant_location,110000,0,0,0
+merchants.merchant_location,200,0,0,0

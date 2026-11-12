@@ -1,0 +1,30 @@
+table_name,check_name,violations
+all,is_synthetic = false,0
+customers,customer_age outside 18..120,0
+customers,customer_id not like C_<16 hex>,0
+devices,device_id not like D_<16 hex>,0
+labels,fraud_label not 0/1,0
+labels,label_available_at <> transaction_time + 60 days,0
+merchants,merchant_id not like M_<16 hex>,0
+merchants,merchant_location.lat/lon not a number,0
+payment_outcomes,failure_code present on SUCCESS or missing on FAILED,0
+payment_outcomes,outcome_time <= transaction_time,0
+payment_outcomes,"status not in (SUCCESS, FAILED)",0
+transactions,account_age <> full days since customers.created_at,0
+transactions,amount_paise <= 0,0
+transactions,amount_paise <> transaction_amount * 100,0
+transactions,average_transaction_value <= 0,0
+transactions,customer lat/lon outside India bounding box,0
+transactions,customer_age differs from customers table,0
+transactions,customer_location is not a JSON object,0
+transactions,customer_location.city not a string,0
+transactions,customer_location.lat/lon not a number,0
+transactions,merchant lat/lon outside India bounding box,0
+transactions,merchant_category differs from merchants table,0
+transactions,merchant_location differs from merchants table,0
+transactions,merchant_location.lat/lon not a number,0
+transactions,"negative counters (account_age, previous_transactions, failed_transactions)",0
+transactions,"payment_channel not in (UPI, card, wallet, net_banking)",0
+transactions,transaction before customer created_at,0
+transactions,transaction_id pattern differs from the majority,0
+transactions,transaction_time after dataset snapshot (2026-05-01),0

@@ -1,0 +1,5 @@
+comparison,rows,matches,match_pct
+transactions.failed_transactions = failed outcomes in previous 24h,110000,110000,100.0
+transactions.account_age = complete days since created_at,110000,110000,100.0
+"round(amount / average_transaction_value, 4) = amount_to_avg_ratio",110000,106840,97.1273
+"same, within 0.001 (shows the gap is rounding of the 2-dp average)",110000,109977,99.9791

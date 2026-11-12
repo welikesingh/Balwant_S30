@@ -1,0 +1,6 @@
+split,rows,null_ratio_no_90d_history,null_new_device_no_device,null_distance_no_location,avg_ratio,new_device_pct,avg_distance_km,night_pct,avg_txn_count_1h,avg_amount_24h_inr
+,110000,2829,1138,3257,2.772,6.71,1046.3,14.03,1.159,5177.27
+warmup,10000,2001,185,273,7.015,24.08,1027.0,14.82,1.201,8856.37
+train,72050,624,858,2153,2.306,5.05,1049.3,13.71,1.16,5363.35
+validation,14061,105,46,421,3.707,4.93,1034.4,14.77,1.126,3058.48
+holdout,13889,99,49,410,1.776,4.76,1056.4,14.43,1.156,3708.04

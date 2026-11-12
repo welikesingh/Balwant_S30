@@ -1,0 +1,11 @@
+feature,kind,rows,matches,mismatches,match_rate_pct,warmup_pct,train_pct,validation_pct,holdout_pct,nulls_mine,nulls_ref
+amount_to_avg_ratio,requested,110000,110000,0,100.0,100.0,100.0,100.0,100.0,2829,2829
+customer_merchant_distance_km,requested,110000,110000,0,100.0,100.0,100.0,100.0,100.0,3257,3257
+is_new_device,requested,110000,110000,0,100.0,100.0,100.0,100.0,100.0,1138,1138
+is_night,requested,110000,110000,0,100.0,100.0,100.0,100.0,100.0,0,0
+txn_amount_last_24h_paise,requested,110000,110000,0,100.0,100.0,100.0,100.0,100.0,0,0
+txn_count_last_1h,requested,110000,110000,0,100.0,100.0,100.0,100.0,100.0,0,0
+has_recent_failures,supporting,110000,110000,0,100.0,100.0,100.0,100.0,100.0,0,0
+hour_of_day,supporting,110000,110000,0,100.0,100.0,100.0,100.0,100.0,0,0
+is_new_account,supporting,110000,110000,0,100.0,100.0,100.0,100.0,100.0,0,0
+is_new_city,supporting,110000,110000,0,100.0,100.0,100.0,100.0,100.0,3257,3257

@@ -1,0 +1,5 @@
+split,transactions,null_device_id,null_customer_location,null_average_transaction_value
+warmup,10000,185,273,2001
+train,72050,858,2153,624
+validation,14061,46,421,105
+holdout,13889,49,410,99

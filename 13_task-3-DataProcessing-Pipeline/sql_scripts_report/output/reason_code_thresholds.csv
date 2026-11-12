@@ -1,0 +1,9 @@
+code,description,num_value,list_value
+R01_NEW_DEVICE,is_new_device = true,,
+R02_GEO_MISMATCH,is_new_city = true OR distance_km > value,500.0,
+R03_ODD_HOUR,is_night = true (IST hour < 5),,
+R04_FAILED_ATTEMPTS,failed outcomes in previous 24h >= value,3.0,
+R05_AMOUNT_SPIKE,amount_to_avg_ratio >= value,5.0,
+R06_NEW_ACCOUNT,account age in days < value,30.0,
+R07_VELOCITY,txn_count_last_1h >= value,4.0,
+R08_HIGH_RISK_MCC,merchant_category in list,,"electronics, gaming, gift_cards"

@@ -1,0 +1,11 @@
+feature,variant,match_rate_pct
+amount_to_avg_ratio,B. current transaction included in its own 90d average (LEAKAGE),0.067
+amount_to_avg_ratio,C. declined attempts dropped from history,63.065
+customer_merchant_distance_km,B. Earth radius 6378.137 km (equatorial) instead of 6371,8.905
+is_new_device,B. device seen at ANY time before (no 90-day window),99.123
+is_night,B. hour taken in UTC instead of IST,63.442
+is_night,C. night = 22:00-06:00 IST,90.305
+txn_amount_last_24h_paise,B. current amount added (LEAKAGE),0.0
+txn_amount_last_24h_paise,C. declined attempts not summed,84.625
+txn_count_last_1h,B. current transaction counted (LEAKAGE),0.0
+txn_count_last_1h,C. declined attempts not counted,84.897

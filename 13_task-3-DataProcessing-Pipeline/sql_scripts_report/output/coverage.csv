@@ -1,0 +1,3 @@
+check_name,rows
+transactions without a row in public.features,0
+public.features rows without a transaction,0

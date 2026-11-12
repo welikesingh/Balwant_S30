@@ -1,0 +1,10 @@
+check_name,violations
+transactions without payment_outcome,0
+transactions without label,0
+transactions without features row,0
+transactions with unknown customer,0
+transactions with unknown merchant,0
+transactions with unknown device,0
+customers with no transactions,20
+merchants with no transactions,0
+devices with no transactions,4715

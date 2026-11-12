@@ -1,0 +1,6 @@
+split,rows,exact_set_matches,exact_set_match_pct,same_order_matches
+warmup,10000,10000,100.0,10000
+train,72050,72050,100.0,72050
+validation,14061,14061,100.0,14061
+holdout,13889,13889,100.0,13889
+ALL,110000,110000,100.0,110000

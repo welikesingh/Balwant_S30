@@ -1,0 +1,9 @@
+table_name,id,content,own_transactions
+customers,C_6addba27873b634f,"created 2022-07-31, age 49, Kochi / south",67
+customers,C_96d400a9352c2b0f,"created 2022-07-31, age 49, Kochi / south",66
+customers,C_455ee5bf4a70cda1,"created 2023-06-25, age 25, Jamshedpur / east",46
+customers,C_fbc7d8229cf6e5dc,"created 2023-06-25, age 25, Jamshedpur / east",40
+customers,C_7f6b1b9b71567004,"created 2023-06-29, age 53, Delhi / north",82
+customers,C_c25537057bf5eab7,"created 2023-06-29, age 53, Delhi / north",84
+payment_outcomes,TX_0000001635,"FAILED SIMULATED_AUTH_FAILURE at 2024-10-15 20:35:37.132+00; txn by C_31ba4431ee1ada4e at 2024-10-15 20:35:35.741+00, 89679 paise",
+payment_outcomes,TX_0000001636,"FAILED SIMULATED_AUTH_FAILURE at 2024-10-15 20:35:37.132+00; txn by C_31ba4431ee1ada4e at 2024-10-15 20:35:35.771+00, 51071 paise",

@@ -1,0 +1,8 @@
+table_name,row_count
+customers,2500
+merchants,200
+devices,10120
+transactions,110000
+payment_outcomes,110000
+labels,110000
+features,110000

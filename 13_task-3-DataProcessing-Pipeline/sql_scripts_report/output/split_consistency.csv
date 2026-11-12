@@ -1,0 +1,4 @@
+check_name,violations
+labels.split <> transactions.split,0
+transaction outside its split calendar window,0
+"split value not in (warmup,train,validation,holdout)",0

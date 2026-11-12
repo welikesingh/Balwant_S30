@@ -1,0 +1,4 @@
+amount_group,rows,fraud,fraud_pct
+high outlier (log IQR),985,159,16.142
+low outlier (log IQR),411,0,0.0
+normal,108604,501,0.461
