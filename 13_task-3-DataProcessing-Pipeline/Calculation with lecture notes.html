@@ -1,0 +1,385 @@
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PayVista Fraud Intelligence — Lecture Summary & Model Training Estimator</title>
+<style>
+  :root {
+    --bg: #f5f7fb; --card: #fff; --ink: #172033; --muted: #5e687b;
+    --line: #dfe5ef; --blue: #2457c5; --blue-soft: #eaf0ff;
+    --teal: #087f8c; --amber: #8a5a00; --amber-soft: #fff4d8;
+    --green: #176b46; --green-soft: #e7f7ee; --shadow: 0 8px 24px rgba(26,42,74,.07);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); }
+  header { background: linear-gradient(125deg,#15284f,#2457c5 70%,#168b98); color: white; padding: 46px 22px 38px; }
+  .wrap { max-width: 1180px; margin: auto; }
+  header .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; opacity: .85; font-weight: 700; }
+  h1 { margin: 10px 0 12px; font-size: clamp(2rem,4vw,3.1rem); line-height: 1.12; }
+  header p { max-width: 850px; margin: 0; color: #e9efff; font-size: 1.05rem; }
+  main { max-width: 1180px; margin: 26px auto 60px; padding: 0 18px; }
+  section { margin: 22px 0; }
+  h2 { font-size: 1.55rem; margin: 0 0 14px; letter-spacing: -.02em; }
+  h3 { font-size: 1.05rem; margin: 0 0 8px; }
+  p { margin: 8px 0 12px; }
+  .muted { color: var(--muted); }
+  .grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 13px; }
+  .grid.two { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .grid.three { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 15px; padding: 18px; box-shadow: var(--shadow); min-width: 0; }
+  .metric .value { font-size: clamp(1.45rem,2.4vw,2.05rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.15; }
+  .metric .label { margin-top: 7px; color: var(--muted); font-size: .9rem; }
+  .metric .note { margin-top: 7px; color: var(--muted); font-size: .78rem; }
+  .pill { display: inline-block; border-radius: 999px; background: var(--blue-soft); color: var(--blue); padding: 4px 9px; font-size: .77rem; font-weight: 700; margin-bottom: 8px; }
+  .callout { border: 1px solid #f0d28c; background: var(--amber-soft); color: #573d0a; padding: 15px 17px; border-radius: 12px; }
+  .callout strong { color: #3f2d08; }
+  .good { background: var(--green-soft); border-color: #b8e4ca; color: #154c35; }
+  .table-wrap { overflow-x: auto; background: white; border: 1px solid var(--line); border-radius: 13px; }
+  table { width: 100%; border-collapse: collapse; min-width: 620px; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  th { background: #f0f4fb; font-size: .84rem; color: #3a4964; }
+  tr:last-child td { border-bottom: 0; }
+  code, .formula { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; }
+  .formula { display: block; overflow-wrap: anywhere; white-space: normal; background: #101b31; color: #e6edff; padding: 12px 14px; border-radius: 9px; margin: 9px 0; font-size: .92rem; }
+  .formula small { color: #a9b9e4; }
+  .stage { border-left: 4px solid var(--blue); padding: 2px 0 3px 13px; margin: 12px 0; }
+  .stage b { display: block; }
+  .stage span { color: var(--muted); font-size: .92rem; }
+  .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  label { display: block; font-weight: 650; font-size: .86rem; margin-bottom: 5px; }
+  input, select { width: 100%; border: 1px solid #cbd4e3; border-radius: 8px; padding: 10px 11px; font: inherit; color: var(--ink); background: #fff; }
+  input:focus, select:focus { outline: 3px solid #d9e4ff; border-color: var(--blue); }
+  .result { padding: 13px; border-radius: 10px; background: #f1f5ff; margin: 9px 0; }
+  .result .big { font-size: 1.4rem; font-weight: 800; }
+  .result .sub { color: var(--muted); font-size: .82rem; }
+  .btn { border: 0; border-radius: 9px; background: var(--blue); color: white; padding: 10px 14px; font: inherit; font-weight: 700; cursor: pointer; }
+  .btn:hover { background: #1744a4; }
+  .small { font-size: .86rem; }
+  footer { color: var(--muted); text-align: center; font-size: .82rem; padding: 24px 12px 40px; }
+  @media (max-width: 850px) { .grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .grid.three { grid-template-columns: repeat(2,minmax(0,1fr)); } .calc { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) { .grid, .grid.two, .grid.three, .fields { grid-template-columns: 1fr; } header { padding-top: 32px; } }
+  @media print {
+    body { background: white; font-size: 11pt; }
+    header { background: #18356d !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; padding: 24px; }
+    main { margin: 10px auto; }
+    .card { box-shadow: none; break-inside: avoid; }
+    .calc { grid-template-columns: 1fr 1fr; }
+    input, select, .btn { border: 1px solid #aaa; }
+    footer { padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Lecture notes · architecture sizing · formulas</div>
+    <h1>PayVista Fraud Intelligence</h1>
+    <p>Consolidated lecture summary, data and workload assumptions, model-training estimation formulas, inference sizing, cost illustrations, and an interactive calculator. All estimates are planning examples—not production benchmarks or vendor quotes.</p>
+  </div>
+</header>
+<main>
+  <section>
+    <h2>1. Executive summary</h2>
+    <div class="card">
+      <p>The lecture describes a fraud-intelligence system for a large payment platform. The goal is to detect suspicious transactions and support investigator workflows while meeting strict latency, availability, and data-residency expectations. The solution combines transaction data, investigation notes, reviewer feedback, model training, and a high-throughput inference service.</p>
+      <p>The proposed model-development sequence is <strong>CPT → SFT → DPO → distillation → quantization</strong>. These stages are options in a model lifecycle, not a requirement to run every stage. The appropriate path depends on the task, data quality, model size, evaluation results, and operational constraints.</p>
+      <div class="callout"><strong>Important:</strong> The figures below preserve the lecture's stated values where available. Some time periods and definitions were unclear in the transcript, and a few GPU/token-throughput figures were presented as examples. Validate them with the actual dataset, chosen model, tokenizer, hardware, and benchmark workload before making a production commitment.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Workload and data snapshot</h2>
+    <div class="grid">
+      <div class="card metric"><div class="pill">Scale</div><div class="value">180,000</div><div class="label">Merchants</div></div>
+      <div class="card metric"><div class="pill">Traffic</div><div class="value">4.2 million/day</div><div class="label">Transactions per day</div><div class="note">Future scenario: 8 million/day by 2028</div></div>
+      <div class="card metric"><div class="pill">Peak</div><div class="value">2,800 TPS</div><div class="label">Peak transactions per second used for sizing</div><div class="note">Lecture also referenced approximately 2,500 TPS as a source figure.</div></div>
+      <div class="card metric"><div class="pill">Users</div><div class="value">90 million</div><div class="label">Unique users</div></div>
+      <div class="card metric"><div class="value">12 million</div><div class="label">Transaction records in training data</div></div>
+      <div class="card metric"><div class="value">310,000</div><div class="label">Investigation notes</div></div>
+      <div class="card metric"><div class="value">~8,000</div><div class="label">Reviewed cases</div></div>
+      <div class="card metric"><div class="value">~5,000</div><div class="label">Preference pairs</div><div class="note">Potential input for preference optimization such as DPO.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Payment mix and risk context</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Payment-channel mix</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Channel</th><th>Share</th></tr></thead>
+          <tbody>
+            <tr><td>UPI</td><td>58%</td></tr>
+            <tr><td>Cards</td><td>31%</td></tr>
+            <tr><td>Wallets</td><td>7%</td></tr>
+            <tr><td>Net banking</td><td>4%</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="card">
+        <h3>Fraud and transaction value</h3>
+        <p><strong>Fraud rate mentioned:</strong> 0.6%</p>
+        <p><strong>Review volume mentioned:</strong> approximately 20,000 cases/day</p>
+        <p><strong>Gross transaction value mentioned:</strong> ₹1.6 lakh crore</p>
+        <p class="muted small">The transcript did not clearly establish the time period for the ₹1.6 lakh crore value. Treat the fraud/review figures as source assumptions until their definitions and denominators are confirmed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Model-development lifecycle</h2>
+    <div class="card">
+      <div class="stage"><b>1. CPT — Continued Pre-Training</b><span>Continue language-model training on domain-relevant unlabeled text, if domain adaptation is needed. Estimate corpus tokens and training tokens from the actual text.</span></div>
+      <div class="stage"><b>2. SFT — Supervised Fine-Tuning</b><span>Train on curated input/output examples for tasks such as structured risk explanations or investigator assistance.</span></div>
+      <div class="stage"><b>3. DPO — Direct Preference Optimization</b><span>Use preference comparisons to encourage outputs that reviewers prefer. The lecture mentions approximately 5,000 preference pairs; quality and coverage matter as much as count.</span></div>
+      <div class="stage"><b>4. Distillation</b><span>Transfer useful behavior from a larger teacher model to a smaller model to reduce serving cost or latency. Validate any quality loss.</span></div>
+      <div class="stage"><b>5. Quantization</b><span>Reduce numeric precision to lower memory use and potentially improve throughput. Benchmark latency and task quality after quantization.</span></div>
+      <p class="muted small">CPT, SFT, and DPO are different training objectives/data formats. Distillation and quantization are additional optimization techniques; they are not interchangeable with fine-tuning.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Serving assumptions and system targets</h2>
+    <div class="grid three">
+      <div class="card"><h3>Request payload</h3><p><strong>0.6 KB inbound</strong><br><strong>0.7 KB outbound</strong><br>Total: <strong>1.3 KB/request</strong></p></div>
+      <div class="card"><h3>Prompt and output</h3><p>Median input: <strong>300 tokens</strong><br>P99 input: <strong>700 tokens</strong><br>Input cap: <strong>1,024 tokens</strong><br>Output: <strong>45 tokens</strong></p></div>
+      <div class="card"><h3>Cache planning</h3><p>Base cache estimate: <strong>50 GB</strong><br>Overhead: <strong>40%</strong><br>Adjusted estimate: <strong>70 GB</strong></p></div>
+    </div>
+    <div class="table-wrap" style="margin-top:14px"><table>
+      <thead><tr><th>Measure</th><th>Lecture target / assumption</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Fraud recall</td><td>&gt; 85%</td><td>Recall is the fraction of actual fraud detected; higher recall may increase false positives.</td></tr>
+        <tr><td>Block precision</td><td>&gt; 70%</td><td>Precision is the fraction of blocked transactions that are truly fraud.</td></tr>
+        <tr><td>PR-AUC</td><td>&gt; 0.08</td><td>Interpret against the base fraud rate and evaluation dataset; do not treat this threshold alone as proof of readiness.</td></tr>
+        <tr><td>P99 latency</td><td>&lt; 250 ms</td><td>Measure end-to-end at expected peak load, including queueing and dependencies.</td></tr>
+        <tr><td>Availability</td><td>&gt; 99.95%</td><td>Define measurement window, exclusions, and service boundary.</td></tr>
+        <tr><td>Data residency</td><td>AWS Mumbai region mentioned</td><td>Confirm the actual deployment region, backups, logs, and data-processing paths against policy.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout" style="margin-top:14px"><strong>Traffic-mix caution:</strong> The transcript mentions planning exceptions of about 1.4% for “review plus block” and about 5% for a medium category, but the categories and denominators are not clear. Do not use these values as definitive routing percentages without clarifying the source.</div>
+  </section>
+
+  <section>
+    <h2>6. Core formulas for training estimates</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>A. Estimate corpus tokens</h3>
+        <span class="formula">Corpus tokens = Number of records × Average tokens per record</span>
+        <p><strong>Example:</strong> 310,000 investigation notes × 500 tokens/note = <strong>155,000,000 tokens (155M)</strong>.</p>
+        <p class="muted small">This example assumes 500 tokens per note. Replace it with tokenizer measurements from the actual corpus.</p>
+      </div>
+      <div class="card">
+        <h3>B. Estimate processed training tokens</h3>
+        <span class="formula">Processed tokens ≈ Corpus tokens × Epochs</span>
+        <p><strong>Example:</strong> 155M tokens × 3 epochs = <strong>465M token presentations</strong>.</p>
+        <p class="muted small">This simple estimate assumes every token is processed each epoch. Packing, truncation, filtering, sequence lengths, and data mixtures can change the total.</p>
+      </div>
+      <div class="card">
+        <h3>C. Approximate dense-model training FLOPs</h3>
+        <span class="formula">Training FLOPs ≈ 6 × P × D</span>
+        <p><strong>P</strong> = model parameters; <strong>D</strong> = training tokens processed.</p>
+        <p><strong>Example:</strong> 0.5B parameters × 465M tokens × 6 = <strong>1.395 × 10¹⁸ FLOPs</strong>.</p>
+        <p class="muted small">A rough rule of thumb for dense transformer training. Architecture, attention implementation, sequence length, optimizer work, checkpointing, and hardware utilization affect real cost.</p>
+      </div>
+      <div class="card">
+        <h3>D. Rough input-inference compute</h3>
+        <span class="formula">Input-pass FLOPs/request ≈ 2 × P × T<sub>input</sub></span>
+        <p><strong>Example:</strong> 0.5B parameters × 300 input tokens × 2 = <strong>3 × 10¹¹ FLOPs/request</strong>.</p>
+        <p class="muted small">This simplified input-side estimate excludes generated-token compute and important architecture/runtime details. Autoregressive output generation must be benchmarked separately.</p>
+      </div>
+      <div class="card">
+        <h3>E. Estimate training duration</h3>
+        <span class="formula">Duration (seconds) ≈ Training FLOPs ÷ Effective FLOPs/second</span>
+        <span class="formula">Effective FLOPs/s = Peak FLOPs/s × Utilization</span>
+        <p><strong>Example:</strong> 100 TFLOP/s peak × 30% utilization = 30 TFLOP/s effective. Then 1.395 × 10¹⁸ ÷ 3 × 10¹³ ≈ <strong>46,500 seconds ≈ 12.9 hours</strong>.</p>
+        <p class="muted small">Illustrative only: 100 TFLOP/s is a hypothetical effective peak for this calculation, not a claim about a particular GPU precision or configuration.</p>
+      </div>
+      <div class="card">
+        <h3>F. Estimate inference GPU count</h3>
+        <span class="formula">GPUs = ceil(Peak requests/s × (1 + Headroom) ÷ Benchmark requests/s/GPU)</span>
+        <p><strong>Example:</strong> 2,800 TPS × 1.30 ÷ 500 TPS/GPU = 7.28 → <strong>8 GPUs</strong>.</p>
+        <p class="muted small">Use measured sustainable throughput at the required P99 latency, context length, output length, batch policy, and availability level. TPS per GPU is model- and hardware-specific.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>7. Worked capacity calculations</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Network throughput</h3>
+        <span class="formula">MB/s ≈ TPS × KB/request ÷ 1,000</span>
+        <p>2,800 TPS × 1.3 KB = 3,640 KB/s ≈ <strong>3.64 MB/s</strong> (decimal units), before protocol overhead, retries, replication, and other traffic.</p>
+      </div>
+      <div class="card">
+        <h3>All-requests token throughput</h3>
+        <span class="formula">Tokens/s = Requests/s × (Input tokens + Output tokens)</span>
+        <p>2,800 × (300 + 45) = <strong>966,000 tokens/s</strong>, if every transaction calls the language model at those average token lengths.</p>
+        <p class="muted small">This is a high-level workload arithmetic estimate, not the number of tokens a particular GPU fleet can serve.</p>
+      </div>
+      <div class="card">
+        <h3>Cache capacity with overhead</h3>
+        <span class="formula">Adjusted cache = Base cache × (1 + Overhead)</span>
+        <p>50 GB × (1 + 0.40) = <strong>70 GB</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Training and monthly serving cost</h3>
+        <span class="formula">Training cost = GPUs × Training hours × Price per GPU-hour</span>
+        <p>Example: 8 × 13 × $4 = <strong>$416</strong>.</p>
+        <span class="formula">Monthly serving cost ≈ GPUs × 720 hours × Price per GPU-hour</span>
+        <p>Example: 8 × 720 × $4 = <strong>$23,040/month</strong>.</p>
+        <p class="muted small">The $4/GPU-hour price is a placeholder for arithmetic, not a current AWS quote. Real costs include instance shape, storage, networking, replicas, monitoring, utilization, discounts, and region.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>8. Interactive training estimator</h2>
+    <p class="muted">Change the assumptions below to recalculate token volume, approximate training FLOPs, estimated duration, GPU count, and illustrative cost. Model size is entered in billions of parameters; tokens are calculated from records × average tokens per record × epochs.</p>
+    <div class="calc">
+      <div class="card">
+        <h3>Inputs</h3>
+        <div class="fields">
+          <div><label for="records">Number of records</label><input id="records" type="number" min="1" step="1000" value="310000"></div>
+          <div><label for="avgTokens">Average tokens per record</label><input id="avgTokens" type="number" min="1" step="10" value="500"></div>
+          <div><label for="epochs">Epochs</label><input id="epochs" type="number" min="1" step="1" value="3"></div>
+          <div><label for="params">Model size (billions of parameters)</label><input id="params" type="number" min="0.01" step="0.1" value="0.5"></div>
+          <div><label for="gpus">Training GPUs</label><input id="gpus" type="number" min="1" step="1" value="8"></div>
+          <div><label for="tf">Peak FLOPs/GPU (TFLOP/s)</label><input id="tf" type="number" min="0.1" step="1" value="100"></div>
+          <div><label for="util">Utilization (%)</label><input id="util" type="number" min="1" max="100" step="1" value="30"></div>
+          <div><label for="rate">GPU-hour price (USD)</label><input id="rate" type="number" min="0" step="0.25" value="4"></div>
+        </div>
+        <p class="small muted">Assumption: simplified dense-model training rule of 6 × parameters × processed tokens. Multi-GPU scaling is assumed linear; real scaling is often lower.</p>
+        <button class="btn" id="reset" type="button">Reset to lecture example</button>
+      </div>
+      <div class="card">
+        <h3>Calculated estimates</h3>
+        <div class="result"><div class="sub">Corpus tokens (before epochs)</div><div class="big" id="corpusOut">155.00M</div></div>
+        <div class="result"><div class="sub">Processed tokens (all epochs)</div><div class="big" id="processedOut">465.00M</div></div>
+        <div class="result"><div class="sub">Approximate training FLOPs</div><div class="big" id="flopsOut">1.395e+18</div></div>
+        <div class="result"><div class="sub">Estimated training duration</div><div class="big" id="hoursOut">1.61 hours</div><div class="sub" id="durationNote">Based on the entered GPU count and utilization.</div></div>
+        <div class="result"><div class="sub">Illustrative GPU cost</div><div class="big" id="costOut">$51.50</div><div class="sub">Estimated duration × GPUs × GPU-hour price.</div></div>
+        <p class="muted small" id="warning"></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>9. Additional inference calculator</h2>
+    <div class="card">
+      <div class="fields">
+        <div><label for="tps">Peak requests per second (TPS)</label><input id="tps" type="number" min="1" value="2800"></div>
+        <div><label for="headroom">Headroom (%)</label><input id="headroom" type="number" min="0" value="30"></div>
+        <div><label for="perGpu">Benchmarked requests/s/GPU</label><input id="perGpu" type="number" min="1" value="500"></div>
+        <div><label for="inputTokens">Average input tokens/request</label><input id="inputTokens" type="number" min="0" value="300"></div>
+        <div><label for="outputTokens">Average output tokens/request</label><input id="outputTokens" type="number" min="0" value="45"></div>
+        <div><label for="kb">Payload KB/request (in + out)</label><input id="kb" type="number" min="0" step="0.1" value="1.3"></div>
+      </div>
+      <div class="grid three" style="margin-top:14px">
+        <div class="result"><div class="sub">Estimated inference GPUs</div><div class="big" id="infGpuOut">8</div></div>
+        <div class="result"><div class="sub">Token throughput if every request invokes model</div><div class="big" id="tokenRateOut">966,000 tokens/s</div></div>
+        <div class="result"><div class="sub">Payload bandwidth (decimal)</div><div class="big" id="bandwidthOut">3.64 MB/s</div></div>
+      </div>
+      <p class="muted small">The GPU estimate is only as reliable as the benchmark throughput entered. Ensure that throughput is measured at the required P99 latency and the same input/output lengths, model precision, batching, and serving stack.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>10. Practical checklist before production sizing</h2>
+    <div class="card">
+      <ul>
+        <li>Measure actual token counts with the tokenizer for transaction records, investigation notes, SFT examples, and preference pairs.</li>
+        <li>Separate training datasets by objective; deduplicate, redact sensitive data, check labels, and prevent train/test leakage.</li>
+        <li>Confirm whether 12 million records, 310,000 notes, 8,000 reviewed cases, and 5,000 preference pairs are independent, overlapping, or derived subsets.</li>
+        <li>Choose the model and precision first, then benchmark representative training and inference workloads on the target GPU type and region.</li>
+        <li>Measure sustainable requests/s at the required P99 latency, not peak throughput alone; test bursts, retries, failure modes, and autoscaling.</li>
+        <li>Define decision policy and thresholds with fraud operations. Track false positives, false negatives, reviewer workload, drift, and appeal outcomes.</li>
+        <li>Confirm data residency and retention for datasets, logs, checkpoints, caches, backups, observability, and support access.</li>
+        <li>Estimate full cost: GPU instances, storage, data transfer, managed services, monitoring, redundancy, idle capacity, and retraining cadence.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>11. Formula reference</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Purpose</th><th>Formula</th><th>Units / notes</th></tr></thead>
+      <tbody>
+        <tr><td>Corpus tokens</td><td><code>records × average tokens per record</code></td><td>tokens</td></tr>
+        <tr><td>Processed tokens</td><td><code>corpus tokens × epochs</code></td><td>token presentations</td></tr>
+        <tr><td>Training compute</td><td><code>6 × parameters × processed tokens</code></td><td>FLOPs; rough dense-model rule</td></tr>
+        <tr><td>Effective GPU throughput</td><td><code>peak FLOPs/s × utilization</code></td><td>FLOPs/s</td></tr>
+        <tr><td>Training time</td><td><code>training FLOPs ÷ effective aggregate FLOPs/s</code></td><td>seconds; assumes scaling model</td></tr>
+        <tr><td>Inference GPU count</td><td><code>ceil(TPS × (1 + headroom) ÷ benchmark TPS/GPU)</code></td><td>GPUs</td></tr>
+        <tr><td>Token throughput</td><td><code>requests/s × (input tokens + output tokens)</code></td><td>tokens/s, if all requests invoke model</td></tr>
+        <tr><td>Network bandwidth</td><td><code>TPS × KB/request ÷ 1,000</code></td><td>MB/s using decimal units</td></tr>
+        <tr><td>Cache with overhead</td><td><code>base cache × (1 + overhead fraction)</code></td><td>GB, if base estimate excludes overhead</td></tr>
+        <tr><td>Training cost</td><td><code>GPU count × hours × price/GPU-hour</code></td><td>currency; add non-GPU costs separately</td></tr>
+        <tr><td>Monthly serving cost</td><td><code>serving GPUs × 720 × price/GPU-hour</code></td><td>illustrative 30-day month, before extras</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <footer>
+    <p><strong>Interpretation note:</strong> This document consolidates lecture content and transparent illustrative arithmetic. It does not certify model quality, cloud pricing, or production capacity. Replace placeholders with measured dataset statistics, hardware benchmarks, regional pricing, and agreed service-level objectives.</p>
+    <p>Tip: use your browser’s <strong>Print → Save as PDF</strong> to export a PDF copy of this single-file report.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  const fmt = (n, digits=2) => Number.isFinite(n) ? n.toLocaleString(undefined, {maximumFractionDigits: digits, minimumFractionDigits: digits}) : "—";
+  const compact = n => {
+    if (!Number.isFinite(n)) return "—";
+    if (Math.abs(n) >= 1e9) return fmt(n/1e9) + "B";
+    if (Math.abs(n) >= 1e6) return fmt(n/1e6) + "M";
+    if (Math.abs(n) >= 1e3) return fmt(n/1e3) + "K";
+    return fmt(n);
+  };
+  const val = id => Math.max(0, Number($(id).value) || 0);
+  function calcTraining() {
+    const records = val("records"), avg = val("avgTokens"), epochs = val("epochs");
+    const params = val("params") * 1e9, gpus = Math.max(1, val("gpus"));
+    const peakTf = val("tf"), util = Math.min(100, val("util")) / 100, rate = val("rate");
+    const corpus = records * avg, processed = corpus * epochs;
+    const flops = 6 * params * processed;
+    const effectiveAggregate = peakTf * 1e12 * util * gpus;
+    const seconds = effectiveAggregate > 0 ? flops / effectiveAggregate : Infinity;
+    const hours = seconds / 3600, cost = hours * gpus * rate;
+    $("corpusOut").textContent = compact(corpus);
+    $("processedOut").textContent = compact(processed);
+    $("flopsOut").textContent = Number.isFinite(flops) ? flops.toExponential(3) : "—";
+    $("hoursOut").textContent = Number.isFinite(hours) ? fmt(hours) + " hours" : "Enter positive peak FLOPs and utilization";
+    $("durationNote").textContent = `Aggregate effective throughput ≈ ${fmt(effectiveAggregate/1e12)} TFLOP/s; excludes overhead and imperfect multi-GPU scaling.`;
+    $("costOut").textContent = Number.isFinite(cost) ? cost.toLocaleString(undefined,{style:"currency",currency:"USD",maximumFractionDigits:2}) : "—";
+    $("warning").textContent = (records && avg && epochs && params && peakTf && util) ?
+      "This estimate is a compute lower-bound style approximation; real wall-clock time may be higher because of input pipelines, communication, evaluation, checkpointing, memory limits, and inefficient utilization." :
+      "Enter positive values for records, tokens per record, epochs, model size, peak FLOPs, and utilization to calculate an estimate.";
+  }
+  function calcInference() {
+    const tps=val("tps"), headroom=val("headroom")/100, perGpu=val("perGpu");
+    const input=val("inputTokens"), output=val("outputTokens"), kb=val("kb");
+    const needed = perGpu > 0 ? Math.ceil(tps*(1+headroom)/perGpu) : Infinity;
+    $("infGpuOut").textContent = Number.isFinite(needed) ? needed.toLocaleString() : "Enter benchmark TPS/GPU";
+    $("tokenRateOut").textContent = Math.round(tps*(input+output)).toLocaleString() + " tokens/s";
+    $("bandwidthOut").textContent = fmt(tps*kb/1000, 3) + " MB/s";
+  }
+  document.querySelectorAll("#records,#avgTokens,#epochs,#params,#gpus,#tf,#util,#rate").forEach(el => el.addEventListener("input", calcTraining));
+  document.querySelectorAll("#tps,#headroom,#perGpu,#inputTokens,#outputTokens,#kb").forEach(el => el.addEventListener("input", calcInference));
+  $("reset").addEventListener("click", () => {
+    const defaults = {records:310000,avgTokens:500,epochs:3,params:0.5,gpus:8,tf:100,util:30,rate:4};
+    Object.entries(defaults).forEach(([id,v]) => $(id).value=v);
+    calcTraining();
+  });
+  calcTraining(); calcInference();
+})();
+</script>
+</body>
+</html>
+'''
+path = Path("/mnt/data/payvista_fraud_model_training_estimator.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created {path} ({path.stat().st_size:,} bytes)")
