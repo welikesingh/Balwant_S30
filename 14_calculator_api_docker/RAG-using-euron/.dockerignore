@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.git/
+.venv/
+*.egg-info/
+THIRD_PARTY_NOTICES.md
+README.md
+EURON.md
