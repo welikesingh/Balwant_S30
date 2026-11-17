@@ -1,0 +1,19 @@
+{
+  "transaction_id": "TX_0000027255",
+  "customer_id": "C_7fef493a7c8d7ff0",
+  "transaction_amount": 3865.09,
+  "merchant_category": "gift_cards",
+  "transaction_time": "2025-03-13T20:39:15.526+00:00",
+  "device_id": "D_20050a5a54f18c76",
+  "customer_age": 28,
+  "customer_location": {
+    "lat": 18.52,
+    "lon": 73.86,
+    "city": "Pune"
+  },
+  "merchant_location": {
+    "lat": 28.61,
+    "lon": 77.21,
+    "city": "Delhi"
+  }
+}

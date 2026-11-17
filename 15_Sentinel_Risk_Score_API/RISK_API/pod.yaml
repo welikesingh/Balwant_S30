@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sentinel-score-pod
+spec:
+  containers:
+  - name: scoreapi-container
+    image: sent-score-api:v3
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 8000

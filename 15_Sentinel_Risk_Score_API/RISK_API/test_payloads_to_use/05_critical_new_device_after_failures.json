@@ -1,0 +1,19 @@
+{
+  "transaction_id": "TX_DEMO_36660_NEWDEV",
+  "customer_id": "C_3b7f82da3eea26d5",
+  "transaction_amount": 2368.73,
+  "merchant_category": "electronics",
+  "transaction_time": "2025-04-22T18:43:24.21+00:00",
+  "customer_age": 60,
+  "customer_location": {
+    "lat": 26.91,
+    "lon": 75.79,
+    "city": "Jaipur"
+  },
+  "merchant_location": {
+    "lat": 9.93,
+    "lon": 76.27,
+    "city": "Kochi"
+  },
+  "device_id": "D_never_seen_before"
+}

@@ -1,0 +1,8 @@
+# SENTINEL rules-only risk API (app/)
+#   pip install -r requirements.txt
+fastapi>=0.115          # brings pydantic and starlette
+uvicorn>=0.30
+python-dotenv>=1.0      # uvicorn --env-file .env
+# tests
+pytest>=8
+httpx>=0.27             # FastAPI TestClient

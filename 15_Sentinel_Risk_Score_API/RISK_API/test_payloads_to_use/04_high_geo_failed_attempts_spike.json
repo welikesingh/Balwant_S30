@@ -1,0 +1,19 @@
+{
+  "transaction_id": "TX_0000047155",
+  "customer_id": "C_e779acf612d2338e",
+  "transaction_amount": 19469.07,
+  "merchant_category": "electronics",
+  "transaction_time": "2025-06-06T12:00:01.811+00:00",
+  "device_id": "D_b3accbe40e805381",
+  "customer_age": 49,
+  "customer_location": {
+    "lat": 20.3,
+    "lon": 85.82,
+    "city": "Bhubaneswar"
+  },
+  "merchant_location": {
+    "lat": 26.14,
+    "lon": 91.74,
+    "city": "Guwahati"
+  }
+}

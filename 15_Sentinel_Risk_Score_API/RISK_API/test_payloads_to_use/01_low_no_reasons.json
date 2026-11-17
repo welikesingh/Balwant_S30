@@ -1,0 +1,19 @@
+{
+  "transaction_id": "TX_0000082702",
+  "customer_id": "C_469e0fa92a3c0ddc",
+  "transaction_amount": 1051.68,
+  "merchant_category": "grocery",
+  "transaction_time": "2025-11-03T08:51:57.123+00:00",
+  "device_id": "D_a0e5f2468d7988cc",
+  "customer_age": 44,
+  "customer_location": {
+    "lat": 22.8,
+    "lon": 86.2,
+    "city": "Jamshedpur"
+  },
+  "merchant_location": {
+    "lat": 22.57,
+    "lon": 88.36,
+    "city": "Kolkata"
+  }
+}

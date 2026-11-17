@@ -1,0 +1,19 @@
+{
+  "transaction_id": "TX_0000078458",
+  "customer_id": "C_2b5a7851536d15e2",
+  "transaction_amount": 14216.45,
+  "merchant_category": "electronics",
+  "transaction_time": "2025-10-16T14:47:45.409+00:00",
+  "device_id": "D_5784ebb41256c617",
+  "customer_age": 50,
+  "customer_location": {
+    "lat": 23.02,
+    "lon": 72.57,
+    "city": "Ahmedabad"
+  },
+  "merchant_location": {
+    "lat": 22.72,
+    "lon": 75.86,
+    "city": "Indore"
+  }
+}
