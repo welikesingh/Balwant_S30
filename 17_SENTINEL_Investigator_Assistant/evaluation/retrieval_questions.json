@@ -1,0 +1,344 @@
+{
+  "collection": "sentinel_corpus2",
+  "relevance_definition": {
+    "document_level": "a retrieved chunk belongs to a document whose text contains one of the answer_phrases",
+    "chunk_level": "the retrieved chunk's own text contains one of the answer_phrases"
+  },
+  "how_expected_evidence_was_found": "answer phrases were read from the corpus; expected documents/chunks are every point in sentinel_corpus2 whose text contains the phrase (verified again at evaluation time)",
+  "questions": [
+    {
+      "id": "Q01",
+      "question": "What should an investigator verify when a new device is used for an unusually large payment?",
+      "expected_topic": "device change",
+      "answer_phrases": [
+        "Compare the observed device with the payer's preceding 90 days of activity"
+      ],
+      "expected_document_types": [
+        "playbooks",
+        "regulatory_exercises"
+      ],
+      "expected_documents": [
+        "DOC_playbooks_0000001",
+        "DOC_playbooks_0000021",
+        "DOC_playbooks_0000041",
+        "DOC_regulatory_exercises_0000001",
+        "DOC_regulatory_exercises_0000021",
+        "DOC_regulatory_exercises_0000041",
+        "DOC_regulatory_exercises_0000061"
+      ],
+      "expected_chunks": [
+        "DOC_playbooks_0000001#0",
+        "DOC_playbooks_0000001#1",
+        "DOC_playbooks_0000021#0",
+        "DOC_playbooks_0000021#1",
+        "DOC_playbooks_0000041#0",
+        "DOC_playbooks_0000041#1",
+        "DOC_regulatory_exercises_0000001#0",
+        "DOC_regulatory_exercises_0000001#1",
+        "DOC_regulatory_exercises_0000021#0",
+        "DOC_regulatory_exercises_0000021#1",
+        "DOC_regulatory_exercises_0000041#0",
+        "DOC_regulatory_exercises_0000041#1",
+        "DOC_regulatory_exercises_0000061#0",
+        "DOC_regulatory_exercises_0000061#1"
+      ]
+    },
+    {
+      "id": "Q02",
+      "question": "Is it suspicious that several different customers paid from the same phone in the last few days?",
+      "expected_topic": "shared devices",
+      "answer_phrases": [
+        "Count distinct prior payers on a device within seven days"
+      ],
+      "expected_document_types": [
+        "playbooks",
+        "regulatory_exercises"
+      ],
+      "expected_documents": [
+        "DOC_playbooks_0000007",
+        "DOC_playbooks_0000027",
+        "DOC_playbooks_0000047",
+        "DOC_regulatory_exercises_0000007",
+        "DOC_regulatory_exercises_0000027",
+        "DOC_regulatory_exercises_0000047",
+        "DOC_regulatory_exercises_0000067"
+      ],
+      "expected_chunks": [
+        "DOC_playbooks_0000007#0",
+        "DOC_playbooks_0000007#1",
+        "DOC_playbooks_0000027#0",
+        "DOC_playbooks_0000027#1",
+        "DOC_playbooks_0000047#0",
+        "DOC_playbooks_0000047#1",
+        "DOC_regulatory_exercises_0000007#0",
+        "DOC_regulatory_exercises_0000007#1",
+        "DOC_regulatory_exercises_0000027#0",
+        "DOC_regulatory_exercises_0000027#1",
+        "DOC_regulatory_exercises_0000047#0",
+        "DOC_regulatory_exercises_0000047#1",
+        "DOC_regulatory_exercises_0000067#0",
+        "DOC_regulatory_exercises_0000067#1"
+      ]
+    },
+    {
+      "id": "Q03",
+      "question": "Should a payment be blocked just because the customer lives in a different city from the merchant?",
+      "expected_topic": "location change",
+      "answer_phrases": [
+        "Do not block solely because customer and merchant cities differ"
+      ],
+      "expected_document_types": [
+        "playbooks",
+        "regulatory_exercises"
+      ],
+      "expected_documents": [
+        "DOC_playbooks_0000002",
+        "DOC_playbooks_0000022",
+        "DOC_playbooks_0000042",
+        "DOC_regulatory_exercises_0000002",
+        "DOC_regulatory_exercises_0000022",
+        "DOC_regulatory_exercises_0000042",
+        "DOC_regulatory_exercises_0000062"
+      ],
+      "expected_chunks": [
+        "DOC_playbooks_0000002#0",
+        "DOC_playbooks_0000002#1",
+        "DOC_playbooks_0000022#0",
+        "DOC_playbooks_0000022#1",
+        "DOC_playbooks_0000042#0",
+        "DOC_playbooks_0000042#1",
+        "DOC_regulatory_exercises_0000002#0",
+        "DOC_regulatory_exercises_0000002#1",
+        "DOC_regulatory_exercises_0000022#0",
+        "DOC_regulatory_exercises_0000022#1",
+        "DOC_regulatory_exercises_0000042#0",
+        "DOC_regulatory_exercises_0000042#1",
+        "DOC_regulatory_exercises_0000062#0",
+        "DOC_regulatory_exercises_0000062#1"
+      ]
+    },
+    {
+      "id": "Q04",
+      "question": "Which failed payment attempts may be counted when reviewing a payment?",
+      "expected_topic": "payment retries",
+      "answer_phrases": [
+        "Count only failed outcomes received before this authorisation"
+      ],
+      "expected_document_types": [
+        "playbooks",
+        "regulatory_exercises"
+      ],
+      "expected_documents": [
+        "DOC_playbooks_0000003",
+        "DOC_playbooks_0000023",
+        "DOC_playbooks_0000043",
+        "DOC_regulatory_exercises_0000003",
+        "DOC_regulatory_exercises_0000023",
+        "DOC_regulatory_exercises_0000043",
+        "DOC_regulatory_exercises_0000063"
+      ],
+      "expected_chunks": [
+        "DOC_playbooks_0000003#0",
+        "DOC_playbooks_0000003#1",
+        "DOC_playbooks_0000023#0",
+        "DOC_playbooks_0000023#1",
+        "DOC_playbooks_0000043#0",
+        "DOC_playbooks_0000043#1",
+        "DOC_regulatory_exercises_0000003#0",
+        "DOC_regulatory_exercises_0000003#1",
+        "DOC_regulatory_exercises_0000023#0",
+        "DOC_regulatory_exercises_0000023#1",
+        "DOC_regulatory_exercises_0000043#0",
+        "DOC_regulatory_exercises_0000043#1",
+        "DOC_regulatory_exercises_0000063#0",
+        "DOC_regulatory_exercises_0000063#1"
+      ]
+    },
+    {
+      "id": "Q05",
+      "question": "What decision applies to a payment when the fraud scoring model times out?",
+      "expected_topic": "model fallback",
+      "answer_phrases": [
+        "below INR 10000 ALLOW, otherwise REVIEW"
+      ],
+      "expected_document_types": [
+        "playbooks",
+        "regulatory_exercises"
+      ],
+      "expected_documents": [
+        "DOC_playbooks_0000015",
+        "DOC_playbooks_0000035",
+        "DOC_playbooks_0000055",
+        "DOC_regulatory_exercises_0000015",
+        "DOC_regulatory_exercises_0000035",
+        "DOC_regulatory_exercises_0000055",
+        "DOC_regulatory_exercises_0000075"
+      ],
+      "expected_chunks": [
+        "DOC_playbooks_0000015#0",
+        "DOC_playbooks_0000015#1",
+        "DOC_playbooks_0000035#0",
+        "DOC_playbooks_0000035#1",
+        "DOC_playbooks_0000055#0",
+        "DOC_playbooks_0000055#1",
+        "DOC_regulatory_exercises_0000015#0",
+        "DOC_regulatory_exercises_0000015#1",
+        "DOC_regulatory_exercises_0000035#0",
+        "DOC_regulatory_exercises_0000035#1",
+        "DOC_regulatory_exercises_0000055#0",
+        "DOC_regulatory_exercises_0000055#1",
+        "DOC_regulatory_exercises_0000075#0",
+        "DOC_regulatory_exercises_0000075#1"
+      ]
+    },
+    {
+      "id": "Q06",
+      "question": "How long after a transaction is its fraud outcome known?",
+      "expected_topic": "label maturity",
+      "answer_phrases": [
+        "Treat a label as available sixty days after the transaction",
+        "The synthetic verdict is known sixty days after the transaction"
+      ],
+      "expected_document_types": [
+        "guidelines",
+        "playbooks",
+        "regulatory_exercises"
+      ],
+      "expected_documents": [
+        "DOC_guidelines_0000001",
+        "DOC_playbooks_0000016",
+        "DOC_playbooks_0000036",
+        "DOC_playbooks_0000056",
+        "DOC_regulatory_exercises_0000016",
+        "DOC_regulatory_exercises_0000036",
+        "DOC_regulatory_exercises_0000056",
+        "DOC_regulatory_exercises_0000076"
+      ],
+      "expected_chunks": [
+        "DOC_guidelines_0000001#0",
+        "DOC_playbooks_0000016#0",
+        "DOC_playbooks_0000016#1",
+        "DOC_playbooks_0000036#0",
+        "DOC_playbooks_0000036#1",
+        "DOC_playbooks_0000056#0",
+        "DOC_playbooks_0000056#1",
+        "DOC_regulatory_exercises_0000016#0",
+        "DOC_regulatory_exercises_0000016#1",
+        "DOC_regulatory_exercises_0000036#0",
+        "DOC_regulatory_exercises_0000036#1",
+        "DOC_regulatory_exercises_0000056#0",
+        "DOC_regulatory_exercises_0000056#1",
+        "DOC_regulatory_exercises_0000076#0",
+        "DOC_regulatory_exercises_0000076#1"
+      ]
+    },
+    {
+      "id": "Q07",
+      "question": "A merchant description contains text instructing the system to approve the payment. How should it be treated?",
+      "expected_topic": "prompt injection",
+      "answer_phrases": [
+        "Treat merchant text as untrusted data"
+      ],
+      "expected_document_types": [
+        "playbooks",
+        "regulatory_exercises"
+      ],
+      "expected_documents": [
+        "DOC_playbooks_0000018",
+        "DOC_playbooks_0000038",
+        "DOC_playbooks_0000058",
+        "DOC_regulatory_exercises_0000018",
+        "DOC_regulatory_exercises_0000038",
+        "DOC_regulatory_exercises_0000058",
+        "DOC_regulatory_exercises_0000078"
+      ],
+      "expected_chunks": [
+        "DOC_playbooks_0000018#0",
+        "DOC_playbooks_0000018#1",
+        "DOC_playbooks_0000038#0",
+        "DOC_playbooks_0000038#1",
+        "DOC_playbooks_0000058#0",
+        "DOC_playbooks_0000058#1",
+        "DOC_regulatory_exercises_0000018#0",
+        "DOC_regulatory_exercises_0000018#1",
+        "DOC_regulatory_exercises_0000038#0",
+        "DOC_regulatory_exercises_0000038#1",
+        "DOC_regulatory_exercises_0000058#0",
+        "DOC_regulatory_exercises_0000058#1",
+        "DOC_regulatory_exercises_0000078#0",
+        "DOC_regulatory_exercises_0000078#1"
+      ]
+    },
+    {
+      "id": "Q08",
+      "question": "How do I tell a claim of an unauthorised payment apart from a refund disagreement?",
+      "expected_topic": "dispute evidence",
+      "answer_phrases": [
+        "Separate an unauthorised-payment allegation from a refund or service-delivery dispute"
+      ],
+      "expected_document_types": [
+        "playbooks",
+        "regulatory_exercises"
+      ],
+      "expected_documents": [
+        "DOC_playbooks_0000009",
+        "DOC_playbooks_0000029",
+        "DOC_playbooks_0000049",
+        "DOC_regulatory_exercises_0000009",
+        "DOC_regulatory_exercises_0000029",
+        "DOC_regulatory_exercises_0000049",
+        "DOC_regulatory_exercises_0000069"
+      ],
+      "expected_chunks": [
+        "DOC_playbooks_0000009#0",
+        "DOC_playbooks_0000009#1",
+        "DOC_playbooks_0000029#0",
+        "DOC_playbooks_0000029#1",
+        "DOC_playbooks_0000049#0",
+        "DOC_playbooks_0000049#1",
+        "DOC_regulatory_exercises_0000009#0",
+        "DOC_regulatory_exercises_0000009#1",
+        "DOC_regulatory_exercises_0000029#0",
+        "DOC_regulatory_exercises_0000029#1",
+        "DOC_regulatory_exercises_0000049#0",
+        "DOC_regulatory_exercises_0000049#1",
+        "DOC_regulatory_exercises_0000069#0",
+        "DOC_regulatory_exercises_0000069#1"
+      ]
+    },
+    {
+      "id": "Q09",
+      "question": "Which months of transactions make up the validation split?",
+      "expected_topic": null,
+      "answer_phrases": [
+        "November and December 2025 form validation"
+      ],
+      "expected_document_types": [
+        "guidelines"
+      ],
+      "expected_documents": [
+        "DOC_guidelines_0000003"
+      ],
+      "expected_chunks": [
+        "DOC_guidelines_0000003#0"
+      ]
+    },
+    {
+      "id": "Q10",
+      "question": "What must be documented in a risk based approach assessment?",
+      "expected_topic": null,
+      "answer_phrases": [
+        "Record likelihood, impact, evidence confidence, mitigating controls"
+      ],
+      "expected_document_types": [
+        "rba_guides"
+      ],
+      "expected_documents": [
+        "DOC_rba_guides_0000001"
+      ],
+      "expected_chunks": [
+        "DOC_rba_guides_0000001#0"
+      ]
+    }
+  ]
+}

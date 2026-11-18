@@ -1,0 +1,21 @@
+# Only pyproject.toml, uv.lock and app/ are needed to build the image.
+# Secrets must never enter the build context.
+.env
+.env.*
+!.env.example
+
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.idea
+.vscode
+.git
+
+tests
+evaluation
+scripts
+docs
+README.md
+Dockerfile
+.dockerignore

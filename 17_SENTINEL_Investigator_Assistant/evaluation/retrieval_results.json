@@ -1,0 +1,1614 @@
+{
+  "collection": "sentinel_corpus2",
+  "embedding_model": "gemini-embedding-2",
+  "top_k": 5,
+  "relevance_definition": {
+    "document_level": "a retrieved chunk belongs to a document whose text contains one of the answer_phrases",
+    "chunk_level": "the retrieved chunk's own text contains one of the answer_phrases"
+  },
+  "configurations": {
+    "app_default_filter": {
+      "document_types_filter": [
+        "playbooks",
+        "regulatory_exercises",
+        "guidelines",
+        "rba_guides"
+      ],
+      "document_hit_at_5": 0.9,
+      "document_hits": 9,
+      "chunk_hit_at_5": 0.9,
+      "chunk_hits": 9,
+      "questions": 10,
+      "per_question": [
+        {
+          "id": "Q01",
+          "question": "What should an investigator verify when a new device is used for an unusually large payment?",
+          "expected_documents": [
+            "DOC_playbooks_0000001",
+            "DOC_playbooks_0000021",
+            "DOC_playbooks_0000041",
+            "DOC_regulatory_exercises_0000001",
+            "DOC_regulatory_exercises_0000021",
+            "DOC_regulatory_exercises_0000041",
+            "DOC_regulatory_exercises_0000061"
+          ],
+          "latency_ms": 434,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7615,
+              "source_document": "DOC_playbooks_0000001",
+              "chunk_number": 1,
+              "point_id": "7863bd9a-b6df-57cf-9877-6c0a112aae53",
+              "document_type": "playbooks",
+              "topic": "device change",
+              "title": "Internal teaching playbook 0001 on device change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7581,
+              "source_document": "DOC_playbooks_0000041",
+              "chunk_number": 1,
+              "point_id": "db84bb6c-fded-588b-a4f1-eeec68045d8e",
+              "document_type": "playbooks",
+              "topic": "device change",
+              "title": "Internal teaching playbook 0041 on device change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7557,
+              "source_document": "DOC_playbooks_0000021",
+              "chunk_number": 1,
+              "point_id": "0df40ad4-1f8d-57d6-bdc4-09890e63a22d",
+              "document_type": "playbooks",
+              "topic": "device change",
+              "title": "Internal teaching playbook 0021 on device change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7451,
+              "source_document": "DOC_playbooks_0000001",
+              "chunk_number": 2,
+              "point_id": "2b3bc412-98e8-5491-94ad-01c97d60f63d",
+              "document_type": "playbooks",
+              "topic": "device change",
+              "title": "Internal teaching playbook 0001 on device change",
+              "document_relevant": true,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.7439,
+              "source_document": "DOC_regulatory_exercises_0000001",
+              "chunk_number": 1,
+              "point_id": "64dd47b6-0cc6-5dd5-a332-c66d9c87d3e0",
+              "document_type": "regulatory_exercises",
+              "topic": "device change",
+              "title": "Synthetic RBI topic exercise 0001 on device change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q02",
+          "question": "Is it suspicious that several different customers paid from the same phone in the last few days?",
+          "expected_documents": [
+            "DOC_playbooks_0000007",
+            "DOC_playbooks_0000027",
+            "DOC_playbooks_0000047",
+            "DOC_regulatory_exercises_0000007",
+            "DOC_regulatory_exercises_0000027",
+            "DOC_regulatory_exercises_0000047",
+            "DOC_regulatory_exercises_0000067"
+          ],
+          "latency_ms": 237,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7368,
+              "source_document": "DOC_regulatory_exercises_0000047",
+              "chunk_number": 1,
+              "point_id": "de101f86-c2b5-5dda-9118-b154c7a01cf7",
+              "document_type": "regulatory_exercises",
+              "topic": "shared devices",
+              "title": "Synthetic RBI topic exercise 0047 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7328,
+              "source_document": "DOC_regulatory_exercises_0000007",
+              "chunk_number": 1,
+              "point_id": "c2e86102-d7f5-5dcb-bcec-3b9952837ba6",
+              "document_type": "regulatory_exercises",
+              "topic": "shared devices",
+              "title": "Synthetic RBI topic exercise 0007 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7321,
+              "source_document": "DOC_regulatory_exercises_0000067",
+              "chunk_number": 1,
+              "point_id": "85993161-e41f-5b6b-9de9-c53d6939c27a",
+              "document_type": "regulatory_exercises",
+              "topic": "shared devices",
+              "title": "Synthetic RBI topic exercise 0067 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7316,
+              "source_document": "DOC_regulatory_exercises_0000027",
+              "chunk_number": 1,
+              "point_id": "0c4b0c1c-6490-53b3-b939-b19c0f082257",
+              "document_type": "regulatory_exercises",
+              "topic": "shared devices",
+              "title": "Synthetic RBI topic exercise 0027 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 5,
+              "score": 0.7259,
+              "source_document": "DOC_playbooks_0000027",
+              "chunk_number": 1,
+              "point_id": "06772058-cf5b-5fc7-9c6d-2dfc3ee18924",
+              "document_type": "playbooks",
+              "topic": "shared devices",
+              "title": "Internal teaching playbook 0027 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q03",
+          "question": "Should a payment be blocked just because the customer lives in a different city from the merchant?",
+          "expected_documents": [
+            "DOC_playbooks_0000002",
+            "DOC_playbooks_0000022",
+            "DOC_playbooks_0000042",
+            "DOC_regulatory_exercises_0000002",
+            "DOC_regulatory_exercises_0000022",
+            "DOC_regulatory_exercises_0000042",
+            "DOC_regulatory_exercises_0000062"
+          ],
+          "latency_ms": 275,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7505,
+              "source_document": "DOC_playbooks_0000022",
+              "chunk_number": 1,
+              "point_id": "d93dab86-a2c1-5303-a8e9-bcb2e0a4518d",
+              "document_type": "playbooks",
+              "topic": "location change",
+              "title": "Internal teaching playbook 0022 on location change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.745,
+              "source_document": "DOC_regulatory_exercises_0000022",
+              "chunk_number": 1,
+              "point_id": "6df2055a-8767-5e53-aa6d-a1c4f8d0060a",
+              "document_type": "regulatory_exercises",
+              "topic": "location change",
+              "title": "Synthetic NPCI topic exercise 0022 on location change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7438,
+              "source_document": "DOC_regulatory_exercises_0000022",
+              "chunk_number": 2,
+              "point_id": "9bb8fa3a-78d3-5eff-afa6-89c06f268ce3",
+              "document_type": "regulatory_exercises",
+              "topic": "location change",
+              "title": "Synthetic NPCI topic exercise 0022 on location change",
+              "document_relevant": true,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 4,
+              "score": 0.7426,
+              "source_document": "DOC_playbooks_0000022",
+              "chunk_number": 2,
+              "point_id": "9ae6e3fc-355e-5cfb-bc2c-29231ccf46a3",
+              "document_type": "playbooks",
+              "topic": "location change",
+              "title": "Internal teaching playbook 0022 on location change",
+              "document_relevant": true,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.7424,
+              "source_document": "DOC_playbooks_0000042",
+              "chunk_number": 1,
+              "point_id": "42dd4be7-d13a-55fc-84a7-c2d02a1cebd8",
+              "document_type": "playbooks",
+              "topic": "location change",
+              "title": "Internal teaching playbook 0042 on location change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q04",
+          "question": "Which failed payment attempts may be counted when reviewing a payment?",
+          "expected_documents": [
+            "DOC_playbooks_0000003",
+            "DOC_playbooks_0000023",
+            "DOC_playbooks_0000043",
+            "DOC_regulatory_exercises_0000003",
+            "DOC_regulatory_exercises_0000023",
+            "DOC_regulatory_exercises_0000043",
+            "DOC_regulatory_exercises_0000063"
+          ],
+          "latency_ms": 262,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7677,
+              "source_document": "DOC_playbooks_0000003",
+              "chunk_number": 1,
+              "point_id": "8e71e309-858d-5a11-85b3-347893e8ae4f",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0003 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7644,
+              "source_document": "DOC_regulatory_exercises_0000003",
+              "chunk_number": 1,
+              "point_id": "2ce8bb0d-1608-5da3-89f6-76975a53bcee",
+              "document_type": "regulatory_exercises",
+              "topic": "payment retries",
+              "title": "Synthetic RBI topic exercise 0003 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7628,
+              "source_document": "DOC_regulatory_exercises_0000023",
+              "chunk_number": 1,
+              "point_id": "982f2fd2-e79f-5ee6-b858-cf630d608fd5",
+              "document_type": "regulatory_exercises",
+              "topic": "payment retries",
+              "title": "Synthetic RBI topic exercise 0023 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7624,
+              "source_document": "DOC_playbooks_0000023",
+              "chunk_number": 1,
+              "point_id": "d0613820-a5e3-5505-a2ed-66b3bd11f6f4",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0023 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 5,
+              "score": 0.7613,
+              "source_document": "DOC_playbooks_0000043",
+              "chunk_number": 1,
+              "point_id": "0e8862e0-34e9-541d-9cc4-6e109fc761c1",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0043 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q05",
+          "question": "What decision applies to a payment when the fraud scoring model times out?",
+          "expected_documents": [
+            "DOC_playbooks_0000015",
+            "DOC_playbooks_0000035",
+            "DOC_playbooks_0000055",
+            "DOC_regulatory_exercises_0000015",
+            "DOC_regulatory_exercises_0000035",
+            "DOC_regulatory_exercises_0000055",
+            "DOC_regulatory_exercises_0000075"
+          ],
+          "latency_ms": 267,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7324,
+              "source_document": "DOC_playbooks_0000055",
+              "chunk_number": 1,
+              "point_id": "eda4d778-2124-5262-a476-4959517ea71b",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0055 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7293,
+              "source_document": "DOC_playbooks_0000015",
+              "chunk_number": 1,
+              "point_id": "9ccd3b1a-2730-5407-955d-bf204de23970",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0015 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7289,
+              "source_document": "DOC_playbooks_0000035",
+              "chunk_number": 1,
+              "point_id": "1ecef6f1-61d7-547e-9fa4-4d934c787672",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0035 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7188,
+              "source_document": "DOC_playbooks_0000055",
+              "chunk_number": 2,
+              "point_id": "9665ad3f-6bb1-55d1-8204-93ed62f3fcac",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0055 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.7133,
+              "source_document": "DOC_playbooks_0000035",
+              "chunk_number": 2,
+              "point_id": "1e28e5bc-f2cc-5155-aee0-89f247995f1e",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0035 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": false
+            }
+          ]
+        },
+        {
+          "id": "Q06",
+          "question": "How long after a transaction is its fraud outcome known?",
+          "expected_documents": [
+            "DOC_guidelines_0000001",
+            "DOC_playbooks_0000016",
+            "DOC_playbooks_0000036",
+            "DOC_playbooks_0000056",
+            "DOC_regulatory_exercises_0000016",
+            "DOC_regulatory_exercises_0000036",
+            "DOC_regulatory_exercises_0000056",
+            "DOC_regulatory_exercises_0000076"
+          ],
+          "latency_ms": 299,
+          "document_hit": false,
+          "chunk_hit": false,
+          "first_relevant_document_rank": null,
+          "first_relevant_chunk_rank": null,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7145,
+              "source_document": "DOC_playbooks_0000043",
+              "chunk_number": 1,
+              "point_id": "0e8862e0-34e9-541d-9cc4-6e109fc761c1",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0043 on payment retries",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 2,
+              "score": 0.7141,
+              "source_document": "DOC_playbooks_0000003",
+              "chunk_number": 1,
+              "point_id": "8e71e309-858d-5a11-85b3-347893e8ae4f",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0003 on payment retries",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 3,
+              "score": 0.712,
+              "source_document": "DOC_regulatory_exercises_0000023",
+              "chunk_number": 1,
+              "point_id": "982f2fd2-e79f-5ee6-b858-cf630d608fd5",
+              "document_type": "regulatory_exercises",
+              "topic": "payment retries",
+              "title": "Synthetic RBI topic exercise 0023 on payment retries",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 4,
+              "score": 0.7114,
+              "source_document": "DOC_playbooks_0000023",
+              "chunk_number": 1,
+              "point_id": "d0613820-a5e3-5505-a2ed-66b3bd11f6f4",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0023 on payment retries",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.7112,
+              "source_document": "DOC_regulatory_exercises_0000003",
+              "chunk_number": 1,
+              "point_id": "2ce8bb0d-1608-5da3-89f6-76975a53bcee",
+              "document_type": "regulatory_exercises",
+              "topic": "payment retries",
+              "title": "Synthetic RBI topic exercise 0003 on payment retries",
+              "document_relevant": false,
+              "chunk_relevant": false
+            }
+          ]
+        },
+        {
+          "id": "Q07",
+          "question": "A merchant description contains text instructing the system to approve the payment. How should it be treated?",
+          "expected_documents": [
+            "DOC_playbooks_0000018",
+            "DOC_playbooks_0000038",
+            "DOC_playbooks_0000058",
+            "DOC_regulatory_exercises_0000018",
+            "DOC_regulatory_exercises_0000038",
+            "DOC_regulatory_exercises_0000058",
+            "DOC_regulatory_exercises_0000078"
+          ],
+          "latency_ms": 225,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7839,
+              "source_document": "DOC_regulatory_exercises_0000018",
+              "chunk_number": 1,
+              "point_id": "631ee54f-32f2-5917-b48a-5b61d6ea98a4",
+              "document_type": "regulatory_exercises",
+              "topic": "prompt injection",
+              "title": "Synthetic NPCI topic exercise 0018 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7775,
+              "source_document": "DOC_regulatory_exercises_0000078",
+              "chunk_number": 1,
+              "point_id": "d96cbb21-3f14-530e-9e31-c01c466e425c",
+              "document_type": "regulatory_exercises",
+              "topic": "prompt injection",
+              "title": "Synthetic NPCI topic exercise 0078 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7768,
+              "source_document": "DOC_regulatory_exercises_0000038",
+              "chunk_number": 1,
+              "point_id": "f0d9b205-e100-5e7d-b30b-be8e969702c4",
+              "document_type": "regulatory_exercises",
+              "topic": "prompt injection",
+              "title": "Synthetic NPCI topic exercise 0038 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7743,
+              "source_document": "DOC_regulatory_exercises_0000058",
+              "chunk_number": 1,
+              "point_id": "b89a28d1-6487-5553-9525-03ad0da68c0b",
+              "document_type": "regulatory_exercises",
+              "topic": "prompt injection",
+              "title": "Synthetic NPCI topic exercise 0058 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 5,
+              "score": 0.7711,
+              "source_document": "DOC_playbooks_0000038",
+              "chunk_number": 1,
+              "point_id": "c67ffd2e-ff66-5737-8281-d520b66080e9",
+              "document_type": "playbooks",
+              "topic": "prompt injection",
+              "title": "Internal teaching playbook 0038 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q08",
+          "question": "How do I tell a claim of an unauthorised payment apart from a refund disagreement?",
+          "expected_documents": [
+            "DOC_playbooks_0000009",
+            "DOC_playbooks_0000029",
+            "DOC_playbooks_0000049",
+            "DOC_regulatory_exercises_0000009",
+            "DOC_regulatory_exercises_0000029",
+            "DOC_regulatory_exercises_0000049",
+            "DOC_regulatory_exercises_0000069"
+          ],
+          "latency_ms": 258,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7732,
+              "source_document": "DOC_playbooks_0000029",
+              "chunk_number": 1,
+              "point_id": "1da2f2c7-bba7-57c3-91df-7b13e4d88344",
+              "document_type": "playbooks",
+              "topic": "dispute evidence",
+              "title": "Internal teaching playbook 0029 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7721,
+              "source_document": "DOC_playbooks_0000049",
+              "chunk_number": 1,
+              "point_id": "a9719739-9cd7-5b09-a239-3cc1daa7a868",
+              "document_type": "playbooks",
+              "topic": "dispute evidence",
+              "title": "Internal teaching playbook 0049 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7714,
+              "source_document": "DOC_playbooks_0000009",
+              "chunk_number": 1,
+              "point_id": "ef577080-0df3-5163-88b7-dc2b98c9cebc",
+              "document_type": "playbooks",
+              "topic": "dispute evidence",
+              "title": "Internal teaching playbook 0009 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.763,
+              "source_document": "DOC_regulatory_exercises_0000009",
+              "chunk_number": 1,
+              "point_id": "350f3714-db10-598d-a78a-b205034c6a1c",
+              "document_type": "regulatory_exercises",
+              "topic": "dispute evidence",
+              "title": "Synthetic RBI topic exercise 0009 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 5,
+              "score": 0.7621,
+              "source_document": "DOC_regulatory_exercises_0000069",
+              "chunk_number": 1,
+              "point_id": "ac6f14dc-1277-5506-9c06-305238772222",
+              "document_type": "regulatory_exercises",
+              "topic": "dispute evidence",
+              "title": "Synthetic RBI topic exercise 0069 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q09",
+          "question": "Which months of transactions make up the validation split?",
+          "expected_documents": [
+            "DOC_guidelines_0000003"
+          ],
+          "latency_ms": 218,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7518,
+              "source_document": "DOC_guidelines_0000003",
+              "chunk_number": 0,
+              "point_id": "2ce7298f-c0d8-56a2-8842-3fce2528b59b",
+              "document_type": "guidelines",
+              "topic": null,
+              "title": "Training splits and label availability guide",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.6794,
+              "source_document": "DOC_regulatory_exercises_0000017",
+              "chunk_number": 1,
+              "point_id": "16a44d06-4a7b-53a9-b429-ce488779034f",
+              "document_type": "regulatory_exercises",
+              "topic": "holdout protection",
+              "title": "Synthetic RBI topic exercise 0017 on holdout protection",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 3,
+              "score": 0.673,
+              "source_document": "DOC_playbooks_0000037",
+              "chunk_number": 1,
+              "point_id": "56fc5388-9224-5a21-b8de-bd79c6fcb2e6",
+              "document_type": "playbooks",
+              "topic": "holdout protection",
+              "title": "Internal teaching playbook 0037 on holdout protection",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 4,
+              "score": 0.6726,
+              "source_document": "DOC_playbooks_0000017",
+              "chunk_number": 1,
+              "point_id": "b70f844a-4a62-5d9b-9234-c6eb5931c5ef",
+              "document_type": "playbooks",
+              "topic": "holdout protection",
+              "title": "Internal teaching playbook 0017 on holdout protection",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.6697,
+              "source_document": "DOC_regulatory_exercises_0000057",
+              "chunk_number": 1,
+              "point_id": "0a2f58d7-a40e-5cf1-be0f-de352b871049",
+              "document_type": "regulatory_exercises",
+              "topic": "holdout protection",
+              "title": "Synthetic RBI topic exercise 0057 on holdout protection",
+              "document_relevant": false,
+              "chunk_relevant": false
+            }
+          ]
+        },
+        {
+          "id": "Q10",
+          "question": "What must be documented in a risk based approach assessment?",
+          "expected_documents": [
+            "DOC_rba_guides_0000001"
+          ],
+          "latency_ms": 208,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7146,
+              "source_document": "DOC_rba_guides_0000001",
+              "chunk_number": 0,
+              "point_id": "e5292ddf-46eb-5222-b611-b03e823bba54",
+              "document_type": "rba_guides",
+              "topic": null,
+              "title": "Risk based approach teaching guide",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.6755,
+              "source_document": "DOC_playbooks_0000011",
+              "chunk_number": 3,
+              "point_id": "ffea6e24-c6ef-57a8-949b-573d90cfb9f4",
+              "document_type": "playbooks",
+              "topic": "risk explanations",
+              "title": "Internal teaching playbook 0011 on risk explanations",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 3,
+              "score": 0.6615,
+              "source_document": "DOC_playbooks_0000051",
+              "chunk_number": 3,
+              "point_id": "bd83eb72-913e-5d72-8dec-d64480eca4f7",
+              "document_type": "playbooks",
+              "topic": "risk explanations",
+              "title": "Internal teaching playbook 0051 on risk explanations",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 4,
+              "score": 0.66,
+              "source_document": "DOC_playbooks_0000054",
+              "chunk_number": 3,
+              "point_id": "7ffbbd1e-963a-5a21-a2f1-0f03a33f0d14",
+              "document_type": "playbooks",
+              "topic": "audit evidence",
+              "title": "Internal teaching playbook 0054 on audit evidence",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.6599,
+              "source_document": "DOC_playbooks_0000031",
+              "chunk_number": 3,
+              "point_id": "435663af-f6fc-5d37-a13a-852e3d35daa2",
+              "document_type": "playbooks",
+              "topic": "risk explanations",
+              "title": "Internal teaching playbook 0031 on risk explanations",
+              "document_relevant": false,
+              "chunk_relevant": false
+            }
+          ]
+        }
+      ]
+    },
+    "whole_collection": {
+      "document_types_filter": "none",
+      "document_hit_at_5": 0.9,
+      "document_hits": 9,
+      "chunk_hit_at_5": 0.9,
+      "chunk_hits": 9,
+      "questions": 10,
+      "per_question": [
+        {
+          "id": "Q01",
+          "question": "What should an investigator verify when a new device is used for an unusually large payment?",
+          "expected_documents": [
+            "DOC_playbooks_0000001",
+            "DOC_playbooks_0000021",
+            "DOC_playbooks_0000041",
+            "DOC_regulatory_exercises_0000001",
+            "DOC_regulatory_exercises_0000021",
+            "DOC_regulatory_exercises_0000041",
+            "DOC_regulatory_exercises_0000061"
+          ],
+          "latency_ms": 229,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7615,
+              "source_document": "DOC_playbooks_0000001",
+              "chunk_number": 1,
+              "point_id": "7863bd9a-b6df-57cf-9877-6c0a112aae53",
+              "document_type": "playbooks",
+              "topic": "device change",
+              "title": "Internal teaching playbook 0001 on device change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7581,
+              "source_document": "DOC_playbooks_0000041",
+              "chunk_number": 1,
+              "point_id": "db84bb6c-fded-588b-a4f1-eeec68045d8e",
+              "document_type": "playbooks",
+              "topic": "device change",
+              "title": "Internal teaching playbook 0041 on device change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7557,
+              "source_document": "DOC_playbooks_0000021",
+              "chunk_number": 1,
+              "point_id": "0df40ad4-1f8d-57d6-bdc4-09890e63a22d",
+              "document_type": "playbooks",
+              "topic": "device change",
+              "title": "Internal teaching playbook 0021 on device change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7451,
+              "source_document": "DOC_playbooks_0000001",
+              "chunk_number": 2,
+              "point_id": "2b3bc412-98e8-5491-94ad-01c97d60f63d",
+              "document_type": "playbooks",
+              "topic": "device change",
+              "title": "Internal teaching playbook 0001 on device change",
+              "document_relevant": true,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.7439,
+              "source_document": "DOC_regulatory_exercises_0000001",
+              "chunk_number": 1,
+              "point_id": "64dd47b6-0cc6-5dd5-a332-c66d9c87d3e0",
+              "document_type": "regulatory_exercises",
+              "topic": "device change",
+              "title": "Synthetic RBI topic exercise 0001 on device change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q02",
+          "question": "Is it suspicious that several different customers paid from the same phone in the last few days?",
+          "expected_documents": [
+            "DOC_playbooks_0000007",
+            "DOC_playbooks_0000027",
+            "DOC_playbooks_0000047",
+            "DOC_regulatory_exercises_0000007",
+            "DOC_regulatory_exercises_0000027",
+            "DOC_regulatory_exercises_0000047",
+            "DOC_regulatory_exercises_0000067"
+          ],
+          "latency_ms": 253,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7368,
+              "source_document": "DOC_regulatory_exercises_0000047",
+              "chunk_number": 1,
+              "point_id": "de101f86-c2b5-5dda-9118-b154c7a01cf7",
+              "document_type": "regulatory_exercises",
+              "topic": "shared devices",
+              "title": "Synthetic RBI topic exercise 0047 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7328,
+              "source_document": "DOC_regulatory_exercises_0000007",
+              "chunk_number": 1,
+              "point_id": "c2e86102-d7f5-5dcb-bcec-3b9952837ba6",
+              "document_type": "regulatory_exercises",
+              "topic": "shared devices",
+              "title": "Synthetic RBI topic exercise 0007 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7321,
+              "source_document": "DOC_regulatory_exercises_0000067",
+              "chunk_number": 1,
+              "point_id": "85993161-e41f-5b6b-9de9-c53d6939c27a",
+              "document_type": "regulatory_exercises",
+              "topic": "shared devices",
+              "title": "Synthetic RBI topic exercise 0067 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7316,
+              "source_document": "DOC_regulatory_exercises_0000027",
+              "chunk_number": 1,
+              "point_id": "0c4b0c1c-6490-53b3-b939-b19c0f082257",
+              "document_type": "regulatory_exercises",
+              "topic": "shared devices",
+              "title": "Synthetic RBI topic exercise 0027 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 5,
+              "score": 0.7259,
+              "source_document": "DOC_playbooks_0000027",
+              "chunk_number": 1,
+              "point_id": "06772058-cf5b-5fc7-9c6d-2dfc3ee18924",
+              "document_type": "playbooks",
+              "topic": "shared devices",
+              "title": "Internal teaching playbook 0027 on shared devices",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q03",
+          "question": "Should a payment be blocked just because the customer lives in a different city from the merchant?",
+          "expected_documents": [
+            "DOC_playbooks_0000002",
+            "DOC_playbooks_0000022",
+            "DOC_playbooks_0000042",
+            "DOC_regulatory_exercises_0000002",
+            "DOC_regulatory_exercises_0000022",
+            "DOC_regulatory_exercises_0000042",
+            "DOC_regulatory_exercises_0000062"
+          ],
+          "latency_ms": 271,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7505,
+              "source_document": "DOC_playbooks_0000022",
+              "chunk_number": 1,
+              "point_id": "d93dab86-a2c1-5303-a8e9-bcb2e0a4518d",
+              "document_type": "playbooks",
+              "topic": "location change",
+              "title": "Internal teaching playbook 0022 on location change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.745,
+              "source_document": "DOC_regulatory_exercises_0000022",
+              "chunk_number": 1,
+              "point_id": "6df2055a-8767-5e53-aa6d-a1c4f8d0060a",
+              "document_type": "regulatory_exercises",
+              "topic": "location change",
+              "title": "Synthetic NPCI topic exercise 0022 on location change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7438,
+              "source_document": "DOC_regulatory_exercises_0000022",
+              "chunk_number": 2,
+              "point_id": "9bb8fa3a-78d3-5eff-afa6-89c06f268ce3",
+              "document_type": "regulatory_exercises",
+              "topic": "location change",
+              "title": "Synthetic NPCI topic exercise 0022 on location change",
+              "document_relevant": true,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 4,
+              "score": 0.7426,
+              "source_document": "DOC_playbooks_0000022",
+              "chunk_number": 2,
+              "point_id": "9ae6e3fc-355e-5cfb-bc2c-29231ccf46a3",
+              "document_type": "playbooks",
+              "topic": "location change",
+              "title": "Internal teaching playbook 0022 on location change",
+              "document_relevant": true,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.7424,
+              "source_document": "DOC_playbooks_0000042",
+              "chunk_number": 1,
+              "point_id": "42dd4be7-d13a-55fc-84a7-c2d02a1cebd8",
+              "document_type": "playbooks",
+              "topic": "location change",
+              "title": "Internal teaching playbook 0042 on location change",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q04",
+          "question": "Which failed payment attempts may be counted when reviewing a payment?",
+          "expected_documents": [
+            "DOC_playbooks_0000003",
+            "DOC_playbooks_0000023",
+            "DOC_playbooks_0000043",
+            "DOC_regulatory_exercises_0000003",
+            "DOC_regulatory_exercises_0000023",
+            "DOC_regulatory_exercises_0000043",
+            "DOC_regulatory_exercises_0000063"
+          ],
+          "latency_ms": 302,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7677,
+              "source_document": "DOC_playbooks_0000003",
+              "chunk_number": 1,
+              "point_id": "8e71e309-858d-5a11-85b3-347893e8ae4f",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0003 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7644,
+              "source_document": "DOC_regulatory_exercises_0000003",
+              "chunk_number": 1,
+              "point_id": "2ce8bb0d-1608-5da3-89f6-76975a53bcee",
+              "document_type": "regulatory_exercises",
+              "topic": "payment retries",
+              "title": "Synthetic RBI topic exercise 0003 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7628,
+              "source_document": "DOC_regulatory_exercises_0000023",
+              "chunk_number": 1,
+              "point_id": "982f2fd2-e79f-5ee6-b858-cf630d608fd5",
+              "document_type": "regulatory_exercises",
+              "topic": "payment retries",
+              "title": "Synthetic RBI topic exercise 0023 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7624,
+              "source_document": "DOC_playbooks_0000023",
+              "chunk_number": 1,
+              "point_id": "d0613820-a5e3-5505-a2ed-66b3bd11f6f4",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0023 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 5,
+              "score": 0.7613,
+              "source_document": "DOC_playbooks_0000043",
+              "chunk_number": 1,
+              "point_id": "0e8862e0-34e9-541d-9cc4-6e109fc761c1",
+              "document_type": "playbooks",
+              "topic": "payment retries",
+              "title": "Internal teaching playbook 0043 on payment retries",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q05",
+          "question": "What decision applies to a payment when the fraud scoring model times out?",
+          "expected_documents": [
+            "DOC_playbooks_0000015",
+            "DOC_playbooks_0000035",
+            "DOC_playbooks_0000055",
+            "DOC_regulatory_exercises_0000015",
+            "DOC_regulatory_exercises_0000035",
+            "DOC_regulatory_exercises_0000055",
+            "DOC_regulatory_exercises_0000075"
+          ],
+          "latency_ms": 253,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7324,
+              "source_document": "DOC_playbooks_0000055",
+              "chunk_number": 1,
+              "point_id": "eda4d778-2124-5262-a476-4959517ea71b",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0055 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7293,
+              "source_document": "DOC_playbooks_0000015",
+              "chunk_number": 1,
+              "point_id": "9ccd3b1a-2730-5407-955d-bf204de23970",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0015 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7289,
+              "source_document": "DOC_playbooks_0000035",
+              "chunk_number": 1,
+              "point_id": "1ecef6f1-61d7-547e-9fa4-4d934c787672",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0035 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7188,
+              "source_document": "DOC_playbooks_0000055",
+              "chunk_number": 2,
+              "point_id": "9665ad3f-6bb1-55d1-8204-93ed62f3fcac",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0055 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.7133,
+              "source_document": "DOC_playbooks_0000035",
+              "chunk_number": 2,
+              "point_id": "1e28e5bc-f2cc-5155-aee0-89f247995f1e",
+              "document_type": "playbooks",
+              "topic": "model fallback",
+              "title": "Internal teaching playbook 0035 on model fallback",
+              "document_relevant": true,
+              "chunk_relevant": false
+            }
+          ]
+        },
+        {
+          "id": "Q06",
+          "question": "How long after a transaction is its fraud outcome known?",
+          "expected_documents": [
+            "DOC_guidelines_0000001",
+            "DOC_playbooks_0000016",
+            "DOC_playbooks_0000036",
+            "DOC_playbooks_0000056",
+            "DOC_regulatory_exercises_0000016",
+            "DOC_regulatory_exercises_0000036",
+            "DOC_regulatory_exercises_0000056",
+            "DOC_regulatory_exercises_0000076"
+          ],
+          "latency_ms": 247,
+          "document_hit": false,
+          "chunk_hit": false,
+          "first_relevant_document_rank": null,
+          "first_relevant_chunk_rank": null,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7191,
+              "source_document": "DOC_investigator_notes_0007624",
+              "chunk_number": 1,
+              "point_id": "0a90882f-080e-59b2-a759-8455b54632e4",
+              "document_type": "investigator_notes",
+              "topic": null,
+              "title": "Investigation case note TX_0000158464 entry 1",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 2,
+              "score": 0.7187,
+              "source_document": "DOC_investigator_notes_0013747",
+              "chunk_number": 1,
+              "point_id": "dcda45a4-c8de-55c8-990e-8c5037d786ef",
+              "document_type": "investigator_notes",
+              "topic": null,
+              "title": "Investigation case note TX_0000480457 entry 1",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 3,
+              "score": 0.7165,
+              "source_document": "DOC_investigator_notes_0019310",
+              "chunk_number": 1,
+              "point_id": "3ffdf66e-0314-5431-8508-6c37cf93515e",
+              "document_type": "investigator_notes",
+              "topic": null,
+              "title": "Investigation case note TX_0000766966 entry 1",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 4,
+              "score": 0.7165,
+              "source_document": "DOC_investigator_notes_0007056",
+              "chunk_number": 1,
+              "point_id": "46856ac8-deea-5e7f-8375-fb4dd2089e43",
+              "document_type": "investigator_notes",
+              "topic": null,
+              "title": "Investigation case note TX_0000129756 entry 1",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.7164,
+              "source_document": "DOC_investigator_notes_0016560",
+              "chunk_number": 1,
+              "point_id": "d3db0b7d-0398-5726-bb03-e24caf49ef8d",
+              "document_type": "investigator_notes",
+              "topic": null,
+              "title": "Investigation case note TX_0000626251 entry 1",
+              "document_relevant": false,
+              "chunk_relevant": false
+            }
+          ]
+        },
+        {
+          "id": "Q07",
+          "question": "A merchant description contains text instructing the system to approve the payment. How should it be treated?",
+          "expected_documents": [
+            "DOC_playbooks_0000018",
+            "DOC_playbooks_0000038",
+            "DOC_playbooks_0000058",
+            "DOC_regulatory_exercises_0000018",
+            "DOC_regulatory_exercises_0000038",
+            "DOC_regulatory_exercises_0000058",
+            "DOC_regulatory_exercises_0000078"
+          ],
+          "latency_ms": 258,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7839,
+              "source_document": "DOC_regulatory_exercises_0000018",
+              "chunk_number": 1,
+              "point_id": "631ee54f-32f2-5917-b48a-5b61d6ea98a4",
+              "document_type": "regulatory_exercises",
+              "topic": "prompt injection",
+              "title": "Synthetic NPCI topic exercise 0018 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7775,
+              "source_document": "DOC_regulatory_exercises_0000078",
+              "chunk_number": 1,
+              "point_id": "d96cbb21-3f14-530e-9e31-c01c466e425c",
+              "document_type": "regulatory_exercises",
+              "topic": "prompt injection",
+              "title": "Synthetic NPCI topic exercise 0078 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7768,
+              "source_document": "DOC_regulatory_exercises_0000038",
+              "chunk_number": 1,
+              "point_id": "f0d9b205-e100-5e7d-b30b-be8e969702c4",
+              "document_type": "regulatory_exercises",
+              "topic": "prompt injection",
+              "title": "Synthetic NPCI topic exercise 0038 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.7743,
+              "source_document": "DOC_regulatory_exercises_0000058",
+              "chunk_number": 1,
+              "point_id": "b89a28d1-6487-5553-9525-03ad0da68c0b",
+              "document_type": "regulatory_exercises",
+              "topic": "prompt injection",
+              "title": "Synthetic NPCI topic exercise 0058 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 5,
+              "score": 0.7711,
+              "source_document": "DOC_playbooks_0000038",
+              "chunk_number": 1,
+              "point_id": "c67ffd2e-ff66-5737-8281-d520b66080e9",
+              "document_type": "playbooks",
+              "topic": "prompt injection",
+              "title": "Internal teaching playbook 0038 on prompt injection",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q08",
+          "question": "How do I tell a claim of an unauthorised payment apart from a refund disagreement?",
+          "expected_documents": [
+            "DOC_playbooks_0000009",
+            "DOC_playbooks_0000029",
+            "DOC_playbooks_0000049",
+            "DOC_regulatory_exercises_0000009",
+            "DOC_regulatory_exercises_0000029",
+            "DOC_regulatory_exercises_0000049",
+            "DOC_regulatory_exercises_0000069"
+          ],
+          "latency_ms": 287,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7732,
+              "source_document": "DOC_playbooks_0000029",
+              "chunk_number": 1,
+              "point_id": "1da2f2c7-bba7-57c3-91df-7b13e4d88344",
+              "document_type": "playbooks",
+              "topic": "dispute evidence",
+              "title": "Internal teaching playbook 0029 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.7721,
+              "source_document": "DOC_playbooks_0000049",
+              "chunk_number": 1,
+              "point_id": "a9719739-9cd7-5b09-a239-3cc1daa7a868",
+              "document_type": "playbooks",
+              "topic": "dispute evidence",
+              "title": "Internal teaching playbook 0049 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 3,
+              "score": 0.7714,
+              "source_document": "DOC_playbooks_0000009",
+              "chunk_number": 1,
+              "point_id": "ef577080-0df3-5163-88b7-dc2b98c9cebc",
+              "document_type": "playbooks",
+              "topic": "dispute evidence",
+              "title": "Internal teaching playbook 0009 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 4,
+              "score": 0.763,
+              "source_document": "DOC_regulatory_exercises_0000009",
+              "chunk_number": 1,
+              "point_id": "350f3714-db10-598d-a78a-b205034c6a1c",
+              "document_type": "regulatory_exercises",
+              "topic": "dispute evidence",
+              "title": "Synthetic RBI topic exercise 0009 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 5,
+              "score": 0.7621,
+              "source_document": "DOC_regulatory_exercises_0000069",
+              "chunk_number": 1,
+              "point_id": "ac6f14dc-1277-5506-9c06-305238772222",
+              "document_type": "regulatory_exercises",
+              "topic": "dispute evidence",
+              "title": "Synthetic RBI topic exercise 0069 on dispute evidence",
+              "document_relevant": true,
+              "chunk_relevant": true
+            }
+          ]
+        },
+        {
+          "id": "Q09",
+          "question": "Which months of transactions make up the validation split?",
+          "expected_documents": [
+            "DOC_guidelines_0000003"
+          ],
+          "latency_ms": 243,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7518,
+              "source_document": "DOC_guidelines_0000003",
+              "chunk_number": 0,
+              "point_id": "2ce7298f-c0d8-56a2-8842-3fce2528b59b",
+              "document_type": "guidelines",
+              "topic": null,
+              "title": "Training splits and label availability guide",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.6794,
+              "source_document": "DOC_regulatory_exercises_0000017",
+              "chunk_number": 1,
+              "point_id": "16a44d06-4a7b-53a9-b429-ce488779034f",
+              "document_type": "regulatory_exercises",
+              "topic": "holdout protection",
+              "title": "Synthetic RBI topic exercise 0017 on holdout protection",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 3,
+              "score": 0.673,
+              "source_document": "DOC_playbooks_0000037",
+              "chunk_number": 1,
+              "point_id": "56fc5388-9224-5a21-b8de-bd79c6fcb2e6",
+              "document_type": "playbooks",
+              "topic": "holdout protection",
+              "title": "Internal teaching playbook 0037 on holdout protection",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 4,
+              "score": 0.6726,
+              "source_document": "DOC_playbooks_0000017",
+              "chunk_number": 1,
+              "point_id": "b70f844a-4a62-5d9b-9234-c6eb5931c5ef",
+              "document_type": "playbooks",
+              "topic": "holdout protection",
+              "title": "Internal teaching playbook 0017 on holdout protection",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.6697,
+              "source_document": "DOC_regulatory_exercises_0000057",
+              "chunk_number": 1,
+              "point_id": "0a2f58d7-a40e-5cf1-be0f-de352b871049",
+              "document_type": "regulatory_exercises",
+              "topic": "holdout protection",
+              "title": "Synthetic RBI topic exercise 0057 on holdout protection",
+              "document_relevant": false,
+              "chunk_relevant": false
+            }
+          ]
+        },
+        {
+          "id": "Q10",
+          "question": "What must be documented in a risk based approach assessment?",
+          "expected_documents": [
+            "DOC_rba_guides_0000001"
+          ],
+          "latency_ms": 288,
+          "document_hit": true,
+          "chunk_hit": true,
+          "first_relevant_document_rank": 1,
+          "first_relevant_chunk_rank": 1,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.7146,
+              "source_document": "DOC_rba_guides_0000001",
+              "chunk_number": 0,
+              "point_id": "e5292ddf-46eb-5222-b611-b03e823bba54",
+              "document_type": "rba_guides",
+              "topic": null,
+              "title": "Risk based approach teaching guide",
+              "document_relevant": true,
+              "chunk_relevant": true
+            },
+            {
+              "rank": 2,
+              "score": 0.6755,
+              "source_document": "DOC_playbooks_0000011",
+              "chunk_number": 3,
+              "point_id": "ffea6e24-c6ef-57a8-949b-573d90cfb9f4",
+              "document_type": "playbooks",
+              "topic": "risk explanations",
+              "title": "Internal teaching playbook 0011 on risk explanations",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 3,
+              "score": 0.6615,
+              "source_document": "DOC_playbooks_0000051",
+              "chunk_number": 3,
+              "point_id": "bd83eb72-913e-5d72-8dec-d64480eca4f7",
+              "document_type": "playbooks",
+              "topic": "risk explanations",
+              "title": "Internal teaching playbook 0051 on risk explanations",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 4,
+              "score": 0.66,
+              "source_document": "DOC_playbooks_0000054",
+              "chunk_number": 3,
+              "point_id": "7ffbbd1e-963a-5a21-a2f1-0f03a33f0d14",
+              "document_type": "playbooks",
+              "topic": "audit evidence",
+              "title": "Internal teaching playbook 0054 on audit evidence",
+              "document_relevant": false,
+              "chunk_relevant": false
+            },
+            {
+              "rank": 5,
+              "score": 0.6599,
+              "source_document": "DOC_playbooks_0000031",
+              "chunk_number": 3,
+              "point_id": "435663af-f6fc-5d37-a13a-852e3d35daa2",
+              "document_type": "playbooks",
+              "topic": "risk explanations",
+              "title": "Internal teaching playbook 0031 on risk explanations",
+              "document_relevant": false,
+              "chunk_relevant": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
